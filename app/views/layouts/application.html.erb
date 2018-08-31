@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>RL</title>
+  <!--Main css styles-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--Main javascript files-->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="md-skin fixed-sidebar fixed-nav">
+  <div id="wrapper">
+    <%= render 'layouts/navigation' %>
+    <div class="gray-bg" id="page-wrapper">
+      <%= render 'layouts/topnavbar' %>
+        <div class="wrapper wrapper-content">
+          <%= yield %>
+          <%= insert_paloma_hook %>
+        </div>
+      <%= render 'layouts/footer' %>
+    </div>
+  </div>
+</body></html>

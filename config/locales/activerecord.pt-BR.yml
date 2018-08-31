@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      general:
+      user:
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmar senha
+        salary: Salário
+        role: Tipo
+        created_at: Cadastrado em
+        updated_at: Atualizado em
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_already_set: Senha já foi atribuída

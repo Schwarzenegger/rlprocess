@@ -1,0 +1,23 @@
+pt-BR:
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} foi criado(a) com sucesso."
+        alert: ""
+      update:
+        notice: "%{resource_name} foi atualizado(a) com sucesso."
+        alert: "%{resource_name} não foi atualizado(a) com sucesso."
+      destroy:
+        notice: "%{resource_name} foi excluído(a) com sucesso."
+        alert: "Não foi possível deletar este registro. Possivelmente ele já está sendo utilizado."
+    sessions:
+      create:
+        notice: ""
+        success: ""
+        failure: ""
+    active_debt/inscriptions:
+      destroy:
+        notice: "%{resource_name} foi extinta com sucesso."
+        alert: "%{resource_name} não foi extinta com sucesso."
+      judge:
+        notice: "%{resource_name} foi ajuizada com sucesso."

@@ -1,0 +1,39 @@
+<nav class="navbar-default navbar-static-side" role="navigation" style="height: 100vh; background-color: #ffffff;">
+  <div class="sidebar-collapse">
+    <ul id="side-menu" class="nav metismenu" style="overflow: hidden; width: auto; height: 100%;">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <span>
+          </span>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <span class="clear">
+              <span class="block m-t-xs">
+                <strong class="font-bold"><%= current_user.name %></strong>
+              </span>
+              <span class="user-role text-muted text-xs block">
+                <%= current_user.email %>
+                <b class="caret"></b>
+              </span>
+            </span>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+            <li>
+              <%= link_to "#" do %>
+                Perfil
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="logo-element">PC</div>
+      </li>
+
+      <% if can?(:index, User) %>
+        <li class="<%= 'active' if params[:controller] == 'users' %>">
+          <%= active_link_to users_path do %>
+            <%= fa(:user) %> Usuários
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

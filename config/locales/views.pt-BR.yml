@@ -1,0 +1,7 @@
+pt-BR:
+  views:
+    general:
+      sign_out: "Sair"
+    users:
+      plural: "Usuários"
+      new: "Cadastrar novo usuário"

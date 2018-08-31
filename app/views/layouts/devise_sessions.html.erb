@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RL</title>
+  <!--Main css styles-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--Main javascript files-->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="gray-bg">
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+    <%= display_flash_messages(flash) %>
+    <%= yield %>
+  </div>
+</body>
+
+</html>

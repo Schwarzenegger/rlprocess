@@ -1,0 +1,12 @@
+<nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <span minimaliza-sidebar=""><a class="navbar-minimalize minimalize-styl-2 btn white-button" href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a></span>
+  </div>
+  <ul class="nav navbar-top-links navbar-right">
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out"></i> <%=t("views.general.sign_out")%>
+      <% end %>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,45 @@
+<% if @resources.length > 0 %>
+  <table class="table footable toggle-arrow-tiny">
+    <thead>
+      <tr>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :name%></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :email %></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :role %></th>
+        <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.user.salary")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.user.created_at")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.user.updated_at")%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |user| %>
+        <tr class="field">
+          <td class="title"><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td class="text-center">
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_user_path(user) } do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <% exclude_message = t('confirm_exclude', model: t('activerecord.models.user').downcase) %>
+            <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), onclick: "deleteModalObject(event, '#{exclude_message}');", data: { url: user_path(user) } do %>
+              <%= fa(:trash) %>
+            <% end %>
+          </td>
+          <td>
+            <%= user.salary %>
+          </td>
+          <td><%= ldate user.created_at, :default %></td>
+          <td><%= ldate user.updated_at, :default %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="text-center" style="padding-bottom: 30px;">
+    <%= t('courses.index.table_empty') %>
+  </div>
+<% end %>
+<div class="f-pagination">
+  <%= paginate @resources %>
+</div>

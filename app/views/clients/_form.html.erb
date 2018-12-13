@@ -1,0 +1,95 @@
+<%
+  form_url = url_for(controller: "clients", action: "create")
+  if !@resource.new_record?
+    form_url = url_for(controller: "clients", action: "update", id: @resource.id)
+  end
+%>
+
+<%= simple_form_for(@resource, url: form_url, authenticity_token: true,
+    method: @resource.new_record? ? "POST" : "PUT", remote: true,
+    wrapper: :vertical_form, html: { class: "form-vertical", role: "form", }) do |f| %>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :social_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :cnpj, input_html: { class: "cnpj" } %>
+      </div>
+
+      <div class="col-xs-6">
+        <%= f.input :date_of_founding, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6" >
+        <%= f.input :municipal_inscription %>
+      </div>
+
+      <div class="col-sm-6" >
+        <%= f.input :state_inscription %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :taxation %>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :contact %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :email %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :telephone %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :iss_password %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :simples_password %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <%= f.input :start_accounting, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+      </div>
+      <div class="col-xs-6">
+        <%= f.input :end_accounting, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+      </div>
+    </div>
+
+    <%if @current_user.admin? %>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :honorary %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :observations %>
+      </div>
+    </div>
+
+<% end %>

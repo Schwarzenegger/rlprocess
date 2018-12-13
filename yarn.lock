@@ -6,9 +6,46 @@ animate.css@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.7.0.tgz#5de25d1ee5fba11ba6a1e2c4fa568f512eb7d4da"
 
+awesome-bootstrap-checkbox@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/awesome-bootstrap-checkbox/-/awesome-bootstrap-checkbox-1.0.1.tgz#dab10146b6001129ab0a0ec1e54bb77c6c30457a"
+  integrity sha1-2rEBRrYAESmrCg7B5Uu3fGwwRXo=
+
+bootstrap@^3.3:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
+  integrity sha1-WjiTlFSfIzMIdaOxUGVldPip63E=
+
 charm@~0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/charm/-/charm-0.1.2.tgz#06c21eed1a1b06aeb67553cdc53e23274bac2296"
+
+eonasdan-bootstrap-datetimepicker@^4.17.47:
+  version "4.17.47"
+  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.47.tgz#7a49970044065276e7965efd16f822735219e735"
+  integrity sha1-ekmXAEQGUnbnll79Fvgic1IZ5zU=
+  dependencies:
+    bootstrap "^3.3"
+    jquery "^1.8.3 || ^2.0 || ^3.0"
+    moment "^2.10"
+    moment-timezone "^0.4.0"
+
+footable@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/footable/-/footable-2.0.6.tgz#24e2d0c4a61648e03fc0313817be853aa59c09d0"
+  integrity sha1-JOLQxKYWSOA/wDE4F76FOqWcCdA=
+  dependencies:
+    jquery ">=1.4.4"
+
+icheck@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/icheck/-/icheck-1.0.2.tgz#06d08da3d47ae448c153b2639b86e9ad7fdf7128"
+  integrity sha1-BtCNo9R65EjBU7Jjm4bprX/fcSg=
+
+jquery-mask-plugin@^1.14.15:
+  version "1.14.15"
+  resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.15.tgz#9daabb41024383cba2a793bacfa46ef8f87273a5"
+  integrity sha512-/mI1N5WG9E7JmjFWIQBIMuG/4QlZDAXuoNjHoqVWZSMah+go5hp/xKI/xC0Jud9Ly4HqqhFxY4AXLTUZT+J7Hg==
 
 jquery-slimscroll@^1.3.8:
   version "1.3.8"
@@ -16,13 +53,26 @@ jquery-slimscroll@^1.3.8:
   dependencies:
     jquery ">= 1.7"
 
-"jquery@>= 1.7", jquery@^3.3.1:
+"jquery@>= 1.7", jquery@>=1.4.4, "jquery@^1.8.3 || ^2.0 || ^3.0", jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 metismenu@^2.7.9:
   version "2.7.9"
   resolved "https://registry.yarnpkg.com/metismenu/-/metismenu-2.7.9.tgz#78366586a0c29281ff503509b1c1f4a3338fb57a"
+
+moment-timezone@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.4.1.tgz#81f598c3ad5e22cdad796b67ecd8d88d0f5baa06"
+  integrity sha1-gfWYw61eIs2teWtn7NjYjQ9bqgY=
+  dependencies:
+    moment ">= 2.6.0"
+
+"moment@>= 2.6.0", moment@^2.10, moment@^2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+  integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
 
 pace@^0.0.4:
   version "0.0.4"

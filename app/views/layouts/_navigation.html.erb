@@ -30,7 +30,15 @@
       <% if can?(:index, User) %>
         <li class="<%= 'active' if params[:controller] == 'users' %>">
           <%= active_link_to users_path do %>
-            <%= fa(:user) %> Usuários
+            <%= fa(:user) %> <%= t("views.users.plural")%>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if can?(:index, Client) %>
+        <li class="<%= 'active' if params[:controller] == 'clients' %>">
+          <%= active_link_to clients_path do %>
+            <%= fa_icon("address-card") %> <%= t("views.clients.plural")%>
           <% end %>
         </li>
       <% end %>

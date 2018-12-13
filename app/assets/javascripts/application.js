@@ -19,5 +19,7 @@
 //= require icheck/icheck.min
 //= require footable/js/footable
 //= require jquery-mask-plugin
+//= require moment/moment
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require paloma
 //= require_tree .

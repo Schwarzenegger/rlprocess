@@ -1,0 +1,36 @@
+pt-BR:
+  enums:
+    client:
+      taxation:
+        simples: SIMPLES
+        presumed_profit: "Lucro Presumido"
+        real_profit: "Lucro Real"
+        deactivated: "Inativa"
+  activerecord:
+    models:
+      client: "Cliente"
+    attributes:
+      client:
+        cnpj: "CNPJ"
+        social_name: "Razão Social"
+        municipal_inscription: "Inscrição Municipal"
+        state_inscription: "Inscrição Estadual"
+        date_of_founding: "Inicio Atividade"
+        taxation: "Tributação"
+        contact: "Contato"
+        email: "Email"
+        telephone: "Telefone"
+        iss_password: "Senha ISS"
+        simples_password: "Senha Simples"
+        start_accounting: "Inicio Contabilidade"
+        end_accounting: "Fim Contabilidade"
+        honorary: "Honorário"
+        observations: "Observações"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              password_already_set: Senha já foi atribuída

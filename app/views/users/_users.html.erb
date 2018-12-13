@@ -16,7 +16,7 @@
         <tr class="field">
           <td class="title"><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.role %></td>
+          <td><%= translate_enum('user', 'role', user.role)  %></td>
           <td class="text-center">
             <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_user_path(user) } do %>
               <i class="fa fa-pencil"></i>

@@ -10,6 +10,7 @@ module RlProcess
   class Application < Rails::Application
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
+    config.i18n.load_path += Dir["#{Rails.root.to_s}/config/locales/**/*.{rb,yml}"]
 
     config.load_defaults 5.2
     config.time_zone = 'America/Fortaleza'

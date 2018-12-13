@@ -12,6 +12,7 @@
  *= require font-awesome
  *= require animate.css/animate.css
  *= require awesome-bootstrap-checkbox/awesome-bootstrap-checkbox
+ *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min
  *= require icheck/skins/square/aero
  *= require footable/css/footable.core.min
  *= require style

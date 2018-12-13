@@ -35,7 +35,11 @@ module ApplicationHelper
     end
   end
 
-  def ldate(dt, format = :long)
+  def ldate(dt, format = :default)
     dt ? I18n.l(dt, format: format) : ""
+  end
+
+  def translate_enum(klass, attribute, value)
+    I18n.t("enums.#{klass}.#{attribute}.#{value}")
   end
 end

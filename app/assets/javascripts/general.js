@@ -93,6 +93,10 @@ var Mask = {
     $(".cpf").mask("999.999.999-99");
   },
 
+  cnpj: function() {
+    $(".cnpj").mask("99.999.999/9999-99");
+  },
+
   money: function() {
     $(".currency").attr("data-prefix", "R$ ").attr("data-thousands", ".").attr("data-decimal", ",").maskMoney();
     $('.currency').each(function() {
@@ -112,11 +116,16 @@ var Mask = {
 
 function bootApp(){
   Paloma.start();
+  setupComponents();
+}
+
+function setupComponents(){
   General.enableICheck();
   General.enableTooltips();
   General.enablePopovers();
   Mask.datePicker();
   Mask.cpf();
+  Mask.cnpj();
 }
 
 $(document).ready(function(){

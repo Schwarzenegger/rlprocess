@@ -1,0 +1,3 @@
+$('div#client-form-container').html("<%= escape_javascript(render partial: 'form' ) %>");
+$(".modal-title").html("<%=t('actions.edit_model', model: t('activerecord.models.client').downcase)%>");
+showModalWindow("client-modal");

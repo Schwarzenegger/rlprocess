@@ -5,7 +5,9 @@
   end
 %>
 
-<%= simple_form_for(@resource, url: form_url, authenticity_token: true, method: @resource.new_record? ? "POST" : "PUT", remote: true, wrapper: :vertical_form, html: { class: "form-vertical", role: "form", }) do |f| %>
+<%= simple_form_for(@resource, url: form_url, authenticity_token: true,
+    method: @resource.new_record? ? "POST" : "PUT", remote: true, wrapper: :vertical_form,
+    html: { class: "form-vertical", role: "form", }) do |f| %>
 
   <div class="row">
     <div class="col-xs-11" style="width: 95%;">

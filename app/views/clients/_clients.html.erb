@@ -1,0 +1,77 @@
+<% if @resources.length > 0 %>
+  <table class="table footable toggle-arrow-tiny">
+    <thead>
+      <tr>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :social_name%></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :cnpj %></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :email %></th>
+        <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.municipal_inscription")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.state_inscription")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.date_of_founding")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.taxation")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.contact")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.telephone")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.start_accounting")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.end_accounting")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.created_at")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.updated_at")%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |client| %>
+        <tr class="field">
+          <td class="title"><%= client.social_name %></td>
+          <td><%= client.cnpj %></td>
+          <td><%= client.email %></td>
+          <td class="text-center">
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_client_path(client) } do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <% exclude_message = t('confirm_exclude', model: t('activerecord.models.client').downcase) %>
+            <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), onclick: "deleteModalObject(event, '#{exclude_message}');", data: { url: client_path(client) } do %>
+              <%= fa(:trash) %>
+            <% end %>
+          </td>
+          <td>
+            <%= client.municipal_inscription %>
+          </td>
+          <td>
+            <%= client.state_inscription %>
+          </td>
+          <td>
+            <%= ldate client.date_of_founding %>
+          </td>
+          <td>
+            <%= translate_enum('client', 'taxation', client.taxation)  %>
+          </td>
+          <td>
+            <%= client.contact %>
+          </td>
+          <td>
+            <%= client.telephone %>
+          </td>
+          <td>
+            <%= ldate client.start_accounting %>
+          </td>
+          <td>
+            <%= ldate client.end_accounting %>
+          </td>
+          <td>
+            <%= ldate client.created_at, :default %>
+          </td>
+          <td>
+            <%= ldate client.updated_at, :default %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="text-center" style="padding-bottom: 30px;">
+    <%= t('views.general.table_empty') %>
+  </div>
+<% end %>
+<div class="f-pagination">
+  <%= paginate @resources %>
+</div>

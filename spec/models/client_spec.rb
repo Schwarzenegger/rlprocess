@@ -25,6 +25,14 @@ RSpec.describe Client, type: :model do
     it { should respond_to(:updated_at) }
   end
 
+  context "Enums" do
+    it { should define_enum_for(:taxation).with_values(
+                             simples: 1,
+                     presumed_profit: 2,
+                         real_profit: 3,
+                         deactivated: 4 ) }
+  end
+
   context "Validations" do
     it { should validate_presence_of(:cnpj) }
     it { should validate_presence_of(:social_name) }

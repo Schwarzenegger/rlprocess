@@ -23,6 +23,13 @@ RSpec.describe User, type: :model do
     it { should respond_to(:last_sign_in_ip) }
   end
 
+  context "Enums" do
+    it { should define_enum_for(:role).with_values(
+                     admin: 1,
+                   manager: 2,
+                  employee: 3) }
+  end
+
   context "Validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:email) }

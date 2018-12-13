@@ -18,6 +18,19 @@ RSpec.describe MasterActivity, type: :model do
     it { should respond_to(:updated_at) }
   end
 
+  context "Enums" do
+    it { should define_enum_for(:category).with_values(
+                     accounting: 1,
+                     individual: 2,
+                         fiscal: 3) }
+
+    it { should define_enum_for(:frequency).with_values(
+                        montly: 1,
+                     quarterly: 2,
+                         anual: 3,
+                   single_time: 4 ) }
+  end
+
   context "Validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:category) }

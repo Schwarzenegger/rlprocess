@@ -34,7 +34,6 @@ RSpec.describe Client, type: :model do
     it { should validate_presence_of(:telephone) }
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:start_accounting) }
-
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_115500) do
+ActiveRecord::Schema.define(version: 2018_12_13_124429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 2018_12_10_115500) do
     t.date "end_accounting"
     t.float "honorary"
     t.text "observations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "master_activities", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
+    t.integer "frequency"
+    t.integer "deadline_year"
+    t.string "deadline_month", array: true
+    t.integer "deadline_day"
+    t.boolean "has_checkbox"
+    t.string "checkbox_options", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

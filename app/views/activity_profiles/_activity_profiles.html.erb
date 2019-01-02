@@ -1,0 +1,37 @@
+<% if @resources.length > 0 %>
+  <table class="table footable toggle-arrow-tiny">
+    <thead>
+      <tr>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :name%></th>
+        <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.activity_profile.created_at")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.activity_profile.updated_at")%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |activity_profile| %>
+        <tr class="field">
+          <td class="title"><%= activity_profile.name %></td>
+          <td class="text-center">
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_activity_profile_path(activity_profile) } do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <% exclude_message = t('confirm_exclude', model: t('activerecord.models.activity_profile').downcase) %>
+            <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), onclick: "deleteModalObject(event, '#{exclude_message}');", data: { url: activity_profile_path(activity_profile) } do %>
+              <%= fa(:trash) %>
+            <% end %>
+          </td>
+          <td><%= ldate activity_profile.created_at, :default %></td>
+          <td><%= ldate activity_profile.updated_at, :default %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="text-center" style="padding-bottom: 30px;">
+    <%= t('views.general.table_empty') %>
+  </div>
+<% end %>
+<div class="f-pagination">
+  <%= paginate @resources %>
+</div>

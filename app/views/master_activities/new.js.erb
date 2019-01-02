@@ -1,0 +1,4 @@
+$('div#master-activity-form-container').html("<%= escape_javascript(render partial: 'form') %>");
+$(".modal-title").html("<%=t('actions.add_one', model: t('activerecord.models.master_activity').downcase)%>");
+showModalWindow("master-activity-modal");
+setupComponents()

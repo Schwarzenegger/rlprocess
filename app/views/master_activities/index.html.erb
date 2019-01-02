@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t("views.master_activities.plural") %></h5>
+        <%= link_to new_master_activity_path, class: "btn btn-xs btn-primary pull-right open-crud-modal", data: { url: new_master_activity_path } do %>
+          <%=fa(:plus)%> <%= t("views.master_activities.plural") %>
+        <% end %>
+      </div>
+      <div class="ibox-content" style="padding-bottom: 10px !important;">
+        <div id="courses-list" class="table-responsive" style="overflow: visible;">
+          <%= render "master_activities" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'layouts/crud_modal', locals: { modal_id: "master-activity", modal_title: t('actions.add_one', model: t('activerecord.models.master_activity').downcase) } %>

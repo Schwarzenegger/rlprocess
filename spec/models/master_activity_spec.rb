@@ -31,6 +31,10 @@ RSpec.describe MasterActivity, type: :model do
                    single_time: 4 ) }
   end
 
+  context "Associations" do
+    it { should have_and_belong_to_many(:activity_profiles) }
+  end
+
   context "Validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:category) }

@@ -9,3 +9,9 @@ pt-BR:
     clients:
       plural: "Clientes"
       new: "Cadastrar novo cliente"
+    master_activities:
+      plural: "Atividades"
+      new: "Cadastrar nova atividade"
+    activity_profiles:
+      plural: "Perfis de Atividade"
+      new: "Cadastrar novo perfil"

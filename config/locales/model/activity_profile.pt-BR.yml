@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      activity_profile: "Perfil da Atividade"
+    attributes:
+      activity_profile:
+        name: "Nome"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"

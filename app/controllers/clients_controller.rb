@@ -31,6 +31,17 @@ class ClientsController < ApplicationController
     respond_with(@resource)
   end
 
+  def update
+    @resource_valid = @resource.update(client_params)
+
+    @location = clients_path
+
+    if @resource_valid
+      flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.client'))
+    end
+    respond_with(@resource)
+  end
+
   private
 
   def set_client

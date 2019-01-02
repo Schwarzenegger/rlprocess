@@ -14,6 +14,7 @@
     <div class="gray-bg" id="page-wrapper">
       <%= render 'layouts/topnavbar' %>
         <div class="wrapper wrapper-content">
+          <%= display_flash_messages(flash) %>
           <%= yield %>
           <%= insert_paloma_hook %>
         </div>

@@ -31,6 +31,32 @@ class UsersController < ApplicationController
     respond_with(@resource)
   end
 
+  def update
+    if params[:user][:password].blank?
+      @resource_valid = @resource.update_without_password(user_params)
+    else
+      @resource_valid = @resource.update(user_params)
+    end
+
+    @location = users_path
+
+    if @resource_valid
+      flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.user'))
+    end
+    respond_with(@resource)
+  end
+
+  def destroy
+    @location = users_path
+    @error = true
+
+    begin
+      flash[:notice] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.user'))
+    rescue
+      @error = true
+    end
+  end
+
   private
 
   def set_user
@@ -42,7 +68,8 @@ class UsersController < ApplicationController
       :name,
       :email,
       :role,
-      :salary
+      :salary,
+      :password
     )
   end
 end

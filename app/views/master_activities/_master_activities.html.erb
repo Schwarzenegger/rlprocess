@@ -1,0 +1,57 @@
+<% if @resources.length > 0 %>
+  <table class="table footable toggle-arrow-tiny">
+    <thead>
+      <tr>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :name%></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :category %></th>
+        <th data-sort-ignore="true"><%= sort_link @q, :frequency %></th>
+        <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_year")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_month")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_day")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.created_at")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.updated_at")%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |master_activity| %>
+        <tr class="field">
+          <td class="title"><%= master_activity.name %></td>
+          <td><%= translate_enum('master_activity', 'category', master_activity.category) %></td>
+          <td><%= translate_enum('master_activity', 'frequency', master_activity.frequency) %></td>
+          <td class="text-center">
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_master_activity_path(master_activity) } do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <% exclude_message = t('confirm_exclude', model: t('activerecord.models.master_activity').downcase) %>
+            <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), onclick: "deleteModalObject(event, '#{exclude_message}');", data: { url: master_activity_path(master_activity) } do %>
+              <%= fa(:trash) %>
+            <% end %>
+          </td>
+          <td>
+            <%= master_activity.deadline_year %>
+          </td>
+          <td>
+            <%= master_activity.deadline_month %>
+          </td>
+          <td>
+            <%= master_activity.deadline_day %>
+          </td>
+          <td>
+            <%= ldate master_activity.created_at, :default %>
+          </td>
+          <td>
+            <%= ldate master_activity.updated_at, :default %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="text-center" style="padding-bottom: 30px;">
+    <%= t('views.general.table_empty') %>
+  </div>
+<% end %>
+<div class="f-pagination">
+  <%= paginate @resources %>
+</div>

@@ -1,0 +1,27 @@
+pt-BR:
+  enums:
+    master_activity:
+      category:
+        accounting: "Contábil"
+        individual: "Pessoa"
+        fiscal: "Fiscal"
+      frequency:
+        montly: "Mensal"
+        quarterly: "Trimestral"
+        anual: "Anual"
+        single_time: "Única"
+  activerecord:
+    models:
+      master_activity: "Atividades"
+    attributes:
+      master_activity:
+        name: "Nome"
+        category: "Tipo"
+        frequency: "Frequência"
+        deadline_year: "Data Fim(Ano)"
+        deadline_month: "Data Fim(Mês)"
+        deadline_day: "Data Fim(Dia)"
+        has_checkbox: "Criar Checklist"
+        checkbox_options: "Opções checklist"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"

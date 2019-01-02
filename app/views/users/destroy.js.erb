@@ -1,0 +1,5 @@
+<% if !@error %>
+  window.location = "<%=@location%>";
+<% else %>
+  alert('Erro', "<%=t('coordinators.messages.destroy_error')%>");
+<% end %>

@@ -42,6 +42,22 @@
           <% end %>
         </li>
       <% end %>
+
+      <% if can?(:index, MasterActivity) %>
+        <li class="<%= 'active' if params[:controller] == 'master_activities' %>">
+          <%= active_link_to master_activities_path do %>
+            <%= fa_icon("tasks") %> <%= t("views.master_activities.plural")%>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if can?(:index, ActivityProfile) %>
+        <li class="<%= 'active' if params[:controller] == 'activity_profiles' %>">
+          <%= active_link_to activity_profiles_path do %>
+            <%= fa_icon("tags") %> <%= t("views.activity_profiles.plural")%>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

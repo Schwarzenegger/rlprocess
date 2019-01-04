@@ -3,8 +3,8 @@ class ActivityProfilesController < ApplicationController
   load_and_authorize_resource
   before_action :set_activity_profile, only: [:edit, :update, :destroy]
 
-  respond_to :html, only: [:index]
-  respond_to :js, except: [:index]
+  respond_to :html, only: [:index, :destroy]
+  respond_to :js, except: [:index, :destroy]
 
   def index
     @q = ActivityProfile.search(params[:q])
@@ -40,6 +40,16 @@ class ActivityProfilesController < ApplicationController
       flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.activity_profile'))
     end
     respond_with(@resource)
+  end
+
+  def destroy
+    if @resource.destroy
+      flash[:alert] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.activity_profile'))
+      redirect_to activity_profiles_path
+    else
+      flash[:alert] = t('activerecord.errors.models.master_activity.delete')
+      redirect_to activity_profiles_path
+    end
   end
 
   private

@@ -17,7 +17,7 @@
               <i class="fa fa-pencil"></i>
             <% end %>
             <% exclude_message = t('confirm_exclude', model: t('activerecord.models.activity_profile').downcase) %>
-            <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), onclick: "deleteModalObject(event, '#{exclude_message}');", data: { url: activity_profile_path(activity_profile) } do %>
+            <%= link_to activity_profile_path(activity_profile), class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
           </td>

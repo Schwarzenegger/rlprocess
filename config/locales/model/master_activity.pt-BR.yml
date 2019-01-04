@@ -13,6 +13,10 @@ pt-BR:
   activerecord:
     models:
       master_activity: "Atividades"
+    errors:
+      models:
+        master_activity:
+          delete: "Não foi possivel deletar Atividade"
     attributes:
       master_activity:
         name: "Nome"

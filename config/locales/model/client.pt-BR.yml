@@ -9,6 +9,10 @@ pt-BR:
   activerecord:
     models:
       client: "Cliente"
+    errors:
+      models:
+        master_activity:
+          delete: "Não foi possivel deletar Cliente"
     attributes:
       client:
         cnpj: "CNPJ"

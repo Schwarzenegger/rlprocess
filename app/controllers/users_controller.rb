@@ -47,13 +47,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @location = users_path
-    @error = true
-
-    begin
-      flash[:notice] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.user'))
-    rescue
-      @error = true
+    if @resource.destroy
+      flash[:alert] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.user'))
+      redirect_to users_path
+    else
+      flash[:alert] = t('activerecord.errors.models.user.delete')
+      redirect_to users_path
     end
   end
 

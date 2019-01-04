@@ -8,6 +8,10 @@ pt-BR:
   activerecord:
     models:
       user: Usuário
+    errors:
+      models:
+        master_activity:
+          delete: "Não foi possivel deletar Usário"
     attributes:
       user:
         name: Nome

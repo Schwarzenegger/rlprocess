@@ -5,5 +5,18 @@ FactoryBot.define do
     role { rand(1..3) }
     salary { Faker::Number.decimal(2) }
     password { Faker::Internet.password(8) }
+
+    trait :admin do
+      role { 1 }
+    end
+
+    trait :manager do
+      role { 2 }
+    end
+
+    trait :employee do
+      role { 3 }
+    end
+
   end
 end

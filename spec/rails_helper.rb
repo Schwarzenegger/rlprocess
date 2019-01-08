@@ -4,6 +4,7 @@ require "rspec/rails"
 require 'capybara/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 if ENV["CC_TEST_REPORTER_ID"]
   require "simplecov"
@@ -39,6 +40,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include SpecHelpers::ControllerHelpers
+  config.include Rails.application.routes.url_helpers
 
   config.expect_with :rspec do |c|
     c.syntax = :expect

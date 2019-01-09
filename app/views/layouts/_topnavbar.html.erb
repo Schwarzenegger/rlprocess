@@ -1,7 +1,9 @@
-<nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
   <div class="navbar-header">
-    <span minimaliza-sidebar=""><a class="navbar-minimalize minimalize-styl-2 btn white-button" href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a></span>
-  </div>
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
   <ul class="nav navbar-top-links navbar-right">
     <li>
       <%= link_to destroy_user_session_path, method: :delete do %>

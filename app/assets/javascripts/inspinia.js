@@ -4,9 +4,7 @@
  *   version 2.7.1
  *
  */
-
 $(document).ready(function () {
-
     // Add body-small class if window less than 768px
     if ($(this).width() < 769) {
         $('body').addClass('body-small')
@@ -230,7 +228,7 @@ $(document).ready(function () {
     }
 });
 
-// check if browser support HTML5 local storage
+// Check if browser support HTML5 local storage
 function localStorageSupport() {
     return (('localStorage' in window) && window['localStorage'] !== null)
 }

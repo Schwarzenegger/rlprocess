@@ -3,7 +3,10 @@ class Client < ApplicationRecord
   enum taxation: {       simples: 1,
                  presumed_profit: 2,
                      real_profit: 3,
-                     deactivated: 4 }
+                     deactivated: 4,
+                     exempt: 5,
+                     others: 6
+}
 
   validates :cnpj, presence: true
   validates :social_name, presence: true

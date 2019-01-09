@@ -26,6 +26,7 @@ gem 'ransack'
 gem 'paloma'
 gem 'responders'
 gem 'enum_help'
+gem "gretel"
 
 group :development, :test do
   gem 'pry-rails'

@@ -21,3 +21,7 @@
 .white-button, .white-button:hover, .white-button:active, .white-button:visited {
   color: #ffffff;
 }
+
+.page-padded {
+    padding: 0px 10px 20px 10px !important;
+}

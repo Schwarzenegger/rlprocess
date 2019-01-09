@@ -6,6 +6,8 @@ pt-BR:
         presumed_profit: "Lucro Presumido"
         real_profit: "Lucro Real"
         deactivated: "Inativa"
+        exempt: "Imune/Isenta"
+        others: "Outros"
   activerecord:
     models:
       client: "Cliente"

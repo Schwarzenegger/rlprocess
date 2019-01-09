@@ -30,7 +30,9 @@ RSpec.describe Client, type: :model do
                              simples: 1,
                      presumed_profit: 2,
                          real_profit: 3,
-                         deactivated: 4 ) }
+                         deactivated: 4,
+                         exempt: 5,
+                         others: 6) }
   end
 
   context "Validations" do

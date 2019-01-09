@@ -1,4 +1,4 @@
-<nav class="navbar-default navbar-static-side" role="navigation" style="height: 100vh; background-color: #ffffff;">
+<nav class="navbar-default navbar-static-side" role="navigation">
   <div class="sidebar-collapse">
     <ul id="side-menu" class="nav metismenu" style="overflow: hidden; width: auto; height: 100%;">
       <li class="nav-header">
@@ -24,13 +24,14 @@
             </li>
           </ul>
         </div>
-        <div class="logo-element">PC</div>
+        <div class="logo-element">RL</div>
       </li>
 
       <% if can?(:index, User) %>
         <li class="<%= 'active' if params[:controller] == 'users' %>">
           <%= active_link_to users_path do %>
-            <%= fa(:user) %> <%= t("views.users.plural")%>
+            <%= fa(:user) %>
+            <span class="nav-label"><%= t("views.users.plural")%></span>
           <% end %>
         </li>
       <% end %>
@@ -38,7 +39,8 @@
       <% if can?(:index, Client) %>
         <li class="<%= 'active' if params[:controller] == 'clients' %>">
           <%= active_link_to clients_path do %>
-            <%= fa_icon("address-card") %> <%= t("views.clients.plural")%>
+            <%= fa_icon("address-card") %>
+            <span class="nav-label"><%= t("views.clients.plural")%></span>
           <% end %>
         </li>
       <% end %>
@@ -46,7 +48,8 @@
       <% if can?(:index, MasterActivity) %>
         <li class="<%= 'active' if params[:controller] == 'master_activities' %>">
           <%= active_link_to master_activities_path do %>
-            <%= fa_icon("tasks") %> <%= t("views.master_activities.plural")%>
+            <%= fa_icon("tasks") %>
+            <span class="nav-label"><%= t("views.master_activities.plural")%></span>
           <% end %>
         </li>
       <% end %>
@@ -54,7 +57,8 @@
       <% if can?(:index, ActivityProfile) %>
         <li class="<%= 'active' if params[:controller] == 'activity_profiles' %>">
           <%= active_link_to activity_profiles_path do %>
-            <%= fa_icon("tags") %> <%= t("views.activity_profiles.plural")%>
+            <%= fa_icon("tags") %>
+            <span class="nav-label"><%= t("views.activity_profiles.plural")%></span>
           <% end %>
         </li>
       <% end %>

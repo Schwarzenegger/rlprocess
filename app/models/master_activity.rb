@@ -1,5 +1,6 @@
 class MasterActivity < ApplicationRecord
   has_and_belongs_to_many :activity_profiles
+  has_many :master_checklist_options
 
   enum category: { accounting: 1,
                    individual: 2,

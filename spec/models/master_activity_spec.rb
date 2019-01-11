@@ -9,11 +9,9 @@ RSpec.describe MasterActivity, type: :model do
     it { should respond_to(:name) }
     it { should respond_to(:category) }
     it { should respond_to(:frequency) }
-    it { should respond_to(:deadline_year) }
+    it { should respond_to(:deadline_date) }
     it { should respond_to(:deadline_month) }
     it { should respond_to(:deadline_day) }
-    it { should respond_to(:has_checkbox) }
-    it { should respond_to(:checkbox_options) }
     it { should respond_to(:created_at) }
     it { should respond_to(:updated_at) }
   end

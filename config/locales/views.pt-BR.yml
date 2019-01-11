@@ -3,6 +3,8 @@ pt-BR:
     general:
       sign_out: "Sair"
       table_empty: "Sem dados para exibir"
+      select_one: "Selecione uma das opções"
+      select_multiple: "Selecione uma ou mais das opções"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

@@ -6,7 +6,7 @@
         <th data-sort-ignore="true"><%= sort_link @q, :category %></th>
         <th data-sort-ignore="true"><%= sort_link @q, :frequency %></th>
         <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
-        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_year")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_date")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_month")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_day")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.created_at")%></th>
@@ -29,7 +29,7 @@
             <% end %>
           </td>
           <td>
-            <%= master_activity.deadline_year %>
+            <%= master_activity.deadline_date %>
           </td>
           <td>
             <%= master_activity.deadline_month %>

@@ -14,6 +14,7 @@
  *= require awesome-bootstrap-checkbox/awesome-bootstrap-checkbox
  *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min
  *= require icheck/skins/square/aero
+ *= require chosen-js/chosen.min
  *= require footable/css/footable.core.min
  *= require style
  */

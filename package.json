@@ -4,6 +4,7 @@
   "dependencies": {
     "animate.css": "^3.7.0",
     "awesome-bootstrap-checkbox": "^1.0.1",
+    "chosen-js": "^1.8.7",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "footable": "^2.0.6",
     "icheck": "^1.0.2",

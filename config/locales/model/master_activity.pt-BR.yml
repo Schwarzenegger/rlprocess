@@ -27,5 +27,7 @@ pt-BR:
         deadline_day: "Data Fim(Dia)"
         has_checkbox: "Criar Checklist"
         checkbox_options: "Opções checklist"
+        activity_profiles: "Perfis"
+        deadline_date: "Data Fim"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

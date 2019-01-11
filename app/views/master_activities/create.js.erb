@@ -2,4 +2,8 @@
   window.location = "<%=@location%>";
 <% else %>
   $('div#master-activity-form-container').html("<%= escape_javascript(render partial: 'form') %>");
+  setupComponents()
+  setupFrequencyFields()
+  onFrequenceChange();
+  handleCheckBoxOptions();
 <% end %>

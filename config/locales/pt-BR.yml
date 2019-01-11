@@ -58,7 +58,6 @@ pt-BR:
     - Sex
     - Sáb
     abbr_month_names:
-    -
     - Jan
     - Fev
     - Mar
@@ -88,7 +87,6 @@ pt-BR:
       simple_date_dot: ! "%d.%m.%Y"
       fullcalendar: ! "%B %Y"
     month_names:
-    -
     - Janeiro
     - Fevereiro
     - Março

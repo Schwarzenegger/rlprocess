@@ -26,6 +26,10 @@ var General = {
     $('[data-toggle="popover"]').popover({ html: true, container: 'body' });
   },
 
+  enableChosen: function(){
+    $('.chosen').chosen()
+  },
+
   enableFootable: function(){
     $('.footable').footable({
       paginate: false
@@ -126,6 +130,7 @@ function setupComponents(){
   Mask.datePicker();
   Mask.cpf();
   Mask.cnpj();
+  General.enableChosen();
 }
 
 $(document).ready(function(){

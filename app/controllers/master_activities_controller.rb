@@ -1,7 +1,9 @@
 class MasterActivitiesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
+  before_action :clean_select_multiple_params, only:[:create, :update]
   before_action :set_master_activity, only: [:edit, :update, :destroy]
+  before_action :set_select_values, only:[:new, :edit, :create, :update]
 
   respond_to :html, only: [:index]
   respond_to :js, except: [:index]
@@ -54,6 +56,17 @@ class MasterActivitiesController < ApplicationController
 
   private
 
+  def clean_select_multiple_params
+    if params['master_activity']['deadline_month']
+      params['master_activity']['deadline_month'].reject!(&:blank?)
+    end
+  end
+
+  def set_select_values
+    @years = [*Date.today.year ..  Date.today.year + 3]
+    @months = I18n.t('date.month_names').each_with_index.map { |month, index| [month, index + 1] }
+  end
+
   def set_master_activity
     @resource = MasterActivity.find(params[:id])
   end
@@ -63,11 +76,12 @@ class MasterActivitiesController < ApplicationController
       :name,
       :category,
       :frequency,
-      :deadline_year,
-      :deadline_month,
+      :deadline_date,
       :deadline_day,
       :has_checkbox,
-      :checkbox_options
+      :checkbox_options,
+      deadline_month: [],
+      activity_profile_ids: []
     )
   end
 end

@@ -17,35 +17,35 @@
 
     <div class="row">
       <div class="col-xs-6">
-        <%= f.input :category %>
+        <%= f.input :category,
+          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
       </div>
 
       <div class="col-xs-6">
-        <%= f.input :frequency %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-4">
-        <%= f.input :deadline_year %>
-      </div>
-
-      <div class="col-xs-4">
-        <%= f.input :deadline_month %>
-      </div>
-
-      <div class="col-xs-4">
-        <%= f.input :deadline_day %>
+        <%= f.input :frequency,
+          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="i-checks custom-text-color">
+        <%= f.association :activity_profiles,
+          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_multiple') } %>
+      </div>
+    </div>
 
-          <%= f.input :has_checkbox, as: :boolean, :label => false, :inline_label => t('activerecord.attributes.master_activity.has_checkbox') %>
-        </div>
+    <div class="row">
+      <div class="col-xs-4 deadline-date-col">
+        <%= f.input :deadline_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+      </div>
 
+      <div class="col-xs-4 deadline-day-col">
+        <%= f.input :deadline_day %>
+      </div>
+
+      <div class="col-xs-4 deadline-month-col">
+        <%= f.input :deadline_month, collection: @months,
+          input_html: { multiple: true, class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
       </div>
     </div>
 

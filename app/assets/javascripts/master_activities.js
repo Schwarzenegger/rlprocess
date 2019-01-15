@@ -73,3 +73,10 @@ function handleCheckBoxOptions(){
   });
 
 }
+
+function setupMasterActivityForm(){
+  setupComponents();
+  setupFrequencyFields()
+  onFrequenceChange();
+  handleCheckBoxOptions();
+}

@@ -3,7 +3,7 @@ pt-BR:
     master_activity:
       category:
         accounting: "Contábil"
-        individual: "Pessoa"
+        individual: "Pessoal"
         fiscal: "Fiscal"
       frequency:
         montly: "Mensal"

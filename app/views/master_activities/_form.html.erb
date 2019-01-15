@@ -9,44 +9,47 @@
     method: @resource.new_record? ? "POST" : "PUT", remote: true,
     wrapper: :vertical_form, html: { class: "form-vertical", role: "form", }) do |f| %>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :name %>
-      </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :category,
+        input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
     </div>
 
-    <div class="row">
-      <div class="col-xs-6">
-        <%= f.input :category,
-          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
-      </div>
+    <div class="col-xs-6">
+      <%= f.input :frequency,
+        input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
+    </div>
+  </div>
 
-      <div class="col-xs-6">
-        <%= f.input :frequency,
-          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
-      </div>
+  <div class="row">
+    <div class="col-xs-4 deadline-date-col">
+      <%= f.input :deadline_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.association :activity_profiles,
-          input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_multiple') } %>
-      </div>
+    <div class="col-xs-4 deadline-day-col">
+      <%= f.input :deadline_day %>
     </div>
 
-    <div class="row">
-      <div class="col-xs-4 deadline-date-col">
-        <%= f.input :deadline_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
-      </div>
-
-      <div class="col-xs-4 deadline-day-col">
-        <%= f.input :deadline_day %>
-      </div>
-
-      <div class="col-xs-4 deadline-month-col">
-        <%= f.input :deadline_month, collection: @months,
-          input_html: { multiple: true, class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
-      </div>
+    <div class="col-xs-4 deadline-month-col">
+      <%= f.input :deadline_month, collection: @months,
+        input_html: { multiple: true, class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
     </div>
+  </div>
+
+  <div id="master_checklist_options">
+    <%= f.simple_fields_for :master_checklist_options do |mco| %>
+      <%= render 'master_checklist_option_fields', f: mco %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t('views.master_activities.add_checklist_option'),
+          f, :master_checklist_options, class: "btn btn-xs btn-primary pull-right" %>
+    </div>
+  </div>
 
 <% end %>

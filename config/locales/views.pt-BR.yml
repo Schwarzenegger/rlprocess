@@ -14,6 +14,8 @@ pt-BR:
     master_activities:
       plural: "Atividades"
       new: "Cadastrar nova atividade"
+      add_checklist_option: "Adicionar um Item ao Checklist"
+      remove_checklist_option: "Remover Item do Checklist"
     activity_profiles:
       plural: "Perfis de Atividade"
       new: "Cadastrar novo perfil"

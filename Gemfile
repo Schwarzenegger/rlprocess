@@ -27,6 +27,7 @@ gem 'paloma'
 gem 'responders'
 gem 'enum_help'
 gem "gretel"
+gem 'cocoon'
 
 group :development, :test do
   gem 'pry-rails'

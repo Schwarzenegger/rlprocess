@@ -81,7 +81,7 @@ class MasterActivitiesController < ApplicationController
       :has_checkbox,
       :checkbox_options,
       deadline_month: [],
-      activity_profile_ids: []
-    )
+      master_checklist_options_attributes: [:id, :name, :_destroy]
+      )
   end
 end

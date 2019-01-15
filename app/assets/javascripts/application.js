@@ -22,5 +22,6 @@
 //= require chosen-js/chosen.jquery.min
 //= require moment/moment
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
+//= require cocoon
 //= require paloma
 //= require_tree .

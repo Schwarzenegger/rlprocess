@@ -60,7 +60,8 @@ class ActivityProfilesController < ApplicationController
 
   def activity_profile_params
     params.require(:activity_profile).permit(
-      :name
+      :name,
+      master_activity_ids: []
     )
   end
 end

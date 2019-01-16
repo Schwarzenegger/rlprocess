@@ -4,7 +4,7 @@ module ApplicationHelper
     flash.each do |type, message|
       unless message.blank?
         html << content_tag(:div, class: "flash-message alert #{ bootstrap_class_for(type) } alert-dismissable alert-modal") do
-          content_tag(:span, message) + content_tag(:button, "x", class: "close")
+          content_tag(:span, message) + content_tag(:button, "x", class: "close", "data-dismiss" => "alert" )
         end
       end
     end

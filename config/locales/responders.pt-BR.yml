@@ -10,11 +10,10 @@ pt-BR:
       destroy:
         notice: "%{resource_name} foi excluído(a) com sucesso."
         alert: "Não foi possível deletar este registro. Possivelmente ele já está sendo utilizado."
-    sessions:
-      create:
-        notice: ""
-        success: ""
-        failure: ""
+    devise:
+      sessions:
+        create:
+          notice: 'Login Efetuado com Sucesso'
     active_debt/inscriptions:
       destroy:
         notice: "%{resource_name} foi extinta com sucesso."

@@ -42,6 +42,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include SpecHelpers::ControllerHelpers
   config.include Rails.application.routes.url_helpers
+  config.include Warden::Test::Helpers
 
   config.expect_with :rspec do |c|
     c.syntax = :expect

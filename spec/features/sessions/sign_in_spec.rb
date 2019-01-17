@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe "Sign In", type: :feature do
   let(:admin_user) { create(:user, :admin, password: "password") }
 

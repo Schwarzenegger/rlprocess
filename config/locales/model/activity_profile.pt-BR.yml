@@ -9,5 +9,6 @@ pt-BR:
     attributes:
       activity_profile:
         name: "Nome"
+        master_activities: "Atividades"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

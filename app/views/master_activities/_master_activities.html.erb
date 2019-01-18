@@ -20,11 +20,16 @@
           <td><%= translate_enum('master_activity', 'category', master_activity.category) %></td>
           <td><%= translate_enum('master_activity', 'frequency', master_activity.frequency) %></td>
           <td class="text-center">
-            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_master_activity_path(master_activity) } do %>
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+              id: "master-activity-edit-#{master_activity.id}", title: t('actions.edit'), onclick: "editModal(event);",
+              data: { url: edit_master_activity_path(master_activity) } do %>
               <i class="fa fa-pencil"></i>
             <% end %>
             <% exclude_message = t('confirm_exclude', model: t('activerecord.models.master_activity').downcase) %>
-            <%= link_to master_activity_path(master_activity), class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
+            <%= link_to master_activity_path(master_activity),
+              class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+              id: "master-activity-delete-#{master_activity.id}", title: t('actions.destroy'),
+              data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
           </td>

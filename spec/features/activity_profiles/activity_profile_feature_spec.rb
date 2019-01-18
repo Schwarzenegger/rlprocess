@@ -52,4 +52,33 @@ describe "Activity Profile Feature specs", type: :feature do
     end
   end
 
+  describe "Should open a edit modal windows" do
+    it "Admin should be able to open modal edit window with form", js: true do
+      activity_profile = create(:activity_profile)
+      login_as(admin_user, :scope => :user)
+
+      visit '/activity_profiles'
+
+      click_on(id: "activity-profile-edit-#{activity_profile.id}")
+
+      within ".modal" do
+        expect(page).to have_content I18n.t('actions.edit_model', model: I18n.t('activerecord.models.activity_profile').downcase)
+      end
+    end
+  end
+
+  describe "Should be able to delete" do
+    it "Admin should be able to delete a activity profile", js: true do
+      activity_profile = create(:activity_profile)
+      login_as(admin_user, :scope => :user)
+
+      visit '/activity_profiles'
+
+      click_on(id: "activity-profile-delete-#{activity_profile.id}")
+      accept_alert
+      expect(page).to have_content I18n.t('flash.actions.destroy.notice', resource_name: I18n.t('activerecord.models.activity_profile'))
+
+    end
+  end
+
 end

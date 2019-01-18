@@ -27,11 +27,14 @@
           <td><%= client.cnpj %></td>
           <td><%= client.email %></td>
           <td class="text-center">
-            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_client_path(client) } do %>
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+              title: t('actions.edit'), onclick: "editModal(event);",
+              id: "client-edit-#{client.id}", data: { url: edit_client_path(client) } do %>
               <i class="fa fa-pencil"></i>
             <% end %>
             <% exclude_message = t('confirm_exclude', model: t('activerecord.models.client').downcase) %>
-            <%= link_to client_path(client), class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
+            <%= link_to client_path(client), class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+              id: "client-delete-#{client.id}", title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
           </td>

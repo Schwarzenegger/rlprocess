@@ -14,9 +14,3 @@ pt-BR:
       sessions:
         create:
           notice: 'Login Efetuado com Sucesso'
-    active_debt/inscriptions:
-      destroy:
-        notice: "%{resource_name} foi extinta com sucesso."
-        alert: "%{resource_name} não foi extinta com sucesso."
-      judge:
-        notice: "%{resource_name} foi ajuizada com sucesso."

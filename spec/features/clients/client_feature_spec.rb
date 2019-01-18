@@ -51,4 +51,33 @@ describe "Client Feature Specs", type: :feature do
     end
   end
 
+  describe "Should open a edit modal windows" do
+    it "Admin should be able to open modal edit window with form", js: true do
+      client = create(:client)
+      login_as(admin_user, :scope => :user)
+
+      visit '/clients'
+
+      click_on(id: "client-edit-#{client.id}")
+
+      within ".modal" do
+        expect(page).to have_content I18n.t('actions.edit_model', model: I18n.t('activerecord.models.client').downcase)
+      end
+    end
+  end
+
+  describe "Should be able to delete" do
+    it "Admin should be able to delete a client", js: true do
+      client = create(:client)
+      login_as(admin_user, :scope => :user)
+
+      visit '/clients'
+
+      click_on(id: "client-delete-#{client.id}")
+      accept_alert
+      expect(page).to have_content I18n.t('flash.actions.destroy.notice', resource_name: I18n.t('activerecord.models.client'))
+
+    end
+  end
+
 end

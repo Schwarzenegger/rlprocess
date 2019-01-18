@@ -50,4 +50,33 @@ describe "Master Activity Feature Spec", type: :feature do
       end
     end
   end
+
+  describe "Should open a edit modal windows" do
+    it "Admin should be able to open modal edit window with form", js: true do
+      master_activity = create(:master_activity)
+      login_as(admin_user, :scope => :user)
+
+      visit '/master_activities'
+
+      click_on(id: "master-activity-edit-#{master_activity.id}")
+
+      within ".modal" do
+        expect(page).to have_content I18n.t('actions.edit_model', model: I18n.t('activerecord.models.master_activity').downcase)
+      end
+    end
+  end
+
+  describe "Should be able to delete" do
+    it "Admin should be able to delete a master_activity", js: true do
+      master_activity = create(:master_activity)
+      login_as(admin_user, :scope => :user)
+
+      visit '/master_activities'
+
+      click_on(id: "master-activity-delete-#{master_activity.id}")
+      accept_alert
+      expect(page).to have_content I18n.t('flash.actions.destroy.notice', resource_name: I18n.t('activerecord.models.master_activity'))
+
+    end
+  end
 end

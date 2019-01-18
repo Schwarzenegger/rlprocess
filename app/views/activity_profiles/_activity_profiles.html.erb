@@ -13,11 +13,14 @@
         <tr class="field">
           <td class="title"><%= activity_profile.name %></td>
           <td class="text-center">
-            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_activity_profile_path(activity_profile) } do %>
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+            title: t('actions.edit'), onclick: "editModal(event);", id: "activity-profile-edit-#{activity_profile.id}",
+            data: { url: edit_activity_profile_path(activity_profile) } do %>
               <i class="fa fa-pencil"></i>
             <% end %>
             <% exclude_message = t('confirm_exclude', model: t('activerecord.models.activity_profile').downcase) %>
-            <%= link_to activity_profile_path(activity_profile), class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
+            <%= link_to activity_profile_path(activity_profile), class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+                id: "activity-profile-delete-#{activity_profile.id}", title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
           </td>

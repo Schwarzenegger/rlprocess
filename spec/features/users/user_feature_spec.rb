@@ -46,4 +46,33 @@ describe "User Feature Spec", type: :feature do
       end
     end
   end
+
+  describe "Should open a edit modal windows" do
+    it "Admin should be able to open modal edit window with form", js: true do
+      user = create(:user)
+      login_as(admin_user, :scope => :user)
+
+      visit '/users'
+
+      click_on(id: "user-edit-#{user.id}")
+
+      within ".modal" do
+        expect(page).to have_content I18n.t('actions.edit_model', model: I18n.t('activerecord.models.user').downcase)
+      end
+    end
+  end
+
+  describe "Should be able to delete" do
+    it "Admin should be able to delete a user", js: true do
+      user = create(:user)
+      login_as(admin_user, :scope => :user)
+
+      visit '/users'
+
+      click_on(id: "user-delete-#{user.id}")
+      accept_alert
+      expect(page).to have_content I18n.t('flash.actions.destroy.notice', resource_name: I18n.t('activerecord.models.user'))
+
+    end
+  end
 end

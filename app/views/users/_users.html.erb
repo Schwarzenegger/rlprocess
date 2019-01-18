@@ -18,11 +18,14 @@
           <td><%= user.email %></td>
           <td><%= translate_enum('user', 'role', user.role)  %></td>
           <td class="text-center">
-            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip", title: t('actions.edit'), onclick: "editModal(event);", data: { url: edit_user_path(user) } do %>
+            <%= link_to "", class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+            id: "user-edit-#{user.id}", title: t('actions.edit'), onclick: "editModal(event);", 
+            data: { url: edit_user_path(user) } do %>
               <i class="fa fa-pencil"></i>
             <% end %>
             <% exclude_message = t('confirm_exclude', model: t('activerecord.models.user').downcase) %>
-            <%= link_to user_path(user), class: "btn btn-xs btn-white btn-bitbucket tool-tip" , title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
+            <%= link_to user_path(user), class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+            id: "user-delete-#{user.id}", title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
           </td>

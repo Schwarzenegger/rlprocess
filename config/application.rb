@@ -11,7 +11,8 @@ module RlProcess
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
     config.i18n.load_path += Dir["#{Rails.root.to_s}/config/locales/**/*.{rb,yml}"]
-
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile += %w( .svg .otf .eot .woff .ttf)
     config.load_defaults 5.2
     config.time_zone = 'America/Fortaleza'
     config.i18n.default_locale = :'pt-BR'

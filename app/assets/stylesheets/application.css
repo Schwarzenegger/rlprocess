@@ -15,7 +15,7 @@
  *= require eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min
  *= require icheck/skins/square/aero
  *= require chosen-js/chosen.min
- *= require footable/css/footable.core.min
+ *= require footable/css/footable.core
  *= require style
  */
 

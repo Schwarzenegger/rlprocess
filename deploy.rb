@@ -13,7 +13,7 @@ require 'optparse'
 options = {
   migrations: true,
   branch: "master",
-  remote: "production"
+  remote: "heroku"
 }
 
 # Interpret passed in options

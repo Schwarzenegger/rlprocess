@@ -14,7 +14,7 @@
 //= require activestorage
 //= require jquery/dist/jquery.min.js
 //= require bootstrap-sprockets
-//= require metisMenu/dist/metisMenu.min.js
+//= require metismenu/dist/metisMenu.min.js
 //= require jquery-slimscroll/jquery.slimscroll.min.js
 //= require icheck/icheck.min
 //= require footable/js/footable

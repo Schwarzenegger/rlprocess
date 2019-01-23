@@ -16,6 +16,12 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :nickname %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-6">
       <%= f.input :cnpj, input_html: { class: "cnpj" } %>
     </div>
@@ -32,6 +38,16 @@
 
     <div class="col-sm-6" >
       <%= f.input :state_inscription %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :partner_name %>
+    </div>
+
+    <div class="col-xs-6">
+      <%= f.input :partner_cpf, input_html: { class: "cpf" }  %>
     </div>
   </div>
 

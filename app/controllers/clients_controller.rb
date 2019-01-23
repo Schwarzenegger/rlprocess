@@ -74,6 +74,9 @@ class ClientsController < ApplicationController
       :start_accounting,
       :end_accounting,
       :honorary,
+      :nickname,
+      :partner_name,
+      :partner_cpf,
       :observations
     )
   end

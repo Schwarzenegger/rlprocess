@@ -2,10 +2,13 @@
   <table class="table footable toggle-arrow-tiny">
     <thead>
       <tr>
-        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :social_name%></th>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :social_name %></th>
+        <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :nickname %></th>
         <th data-sort-ignore="true"><%= sort_link @q, :cnpj %></th>
         <th data-sort-ignore="true"><%= sort_link @q, :email %></th>
         <th data-sort-ignore="true" class="text-center"><%= t('link.actions') %></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.partner_name")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.partner_cpf")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.municipal_inscription")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.state_inscription")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.client.date_of_founding")%></th>
@@ -24,6 +27,7 @@
       <% @resources.each do |client| %>
         <tr class="field">
           <td class="title"><%= client.social_name %></td>
+          <td><%= client.nickname %></td>
           <td><%= client.cnpj %></td>
           <td><%= client.email %></td>
           <td class="text-center">
@@ -37,6 +41,12 @@
               id: "client-delete-#{client.id}", title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>
               <%= fa(:trash) %>
             <% end %>
+          </td>
+          <td>
+            <%= client.partner_name %>
+          </td>
+          <td>
+            <%= client.partner_cpf %>
           </td>
           <td>
             <%= client.municipal_inscription %>

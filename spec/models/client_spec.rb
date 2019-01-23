@@ -21,6 +21,9 @@ RSpec.describe Client, type: :model do
     it { should respond_to(:end_accounting) }
     it { should respond_to(:honorary) }
     it { should respond_to(:observations) }
+    it { should respond_to(:nickname) }
+    it { should respond_to(:partner_name) }
+    it { should respond_to(:partner_cpf) }
     it { should respond_to(:created_at) }
     it { should respond_to(:updated_at) }
   end

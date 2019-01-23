@@ -18,7 +18,10 @@ pt-BR:
     attributes:
       client:
         cnpj: "CNPJ"
+        nickname: "Apelido"
         social_name: "Razão Social"
+        partner_name: "Sócio Responsável"
+        partner_cpf: "CPF Sócio Responsável"
         municipal_inscription: "Inscrição Municipal"
         state_inscription: "Inscrição Estadual"
         date_of_founding: "Inicio Atividade"

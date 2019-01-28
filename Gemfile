@@ -28,7 +28,7 @@ gem 'responders'
 gem 'enum_help'
 gem "gretel"
 gem 'cocoon'
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3"
 
 group :development, :test do
   gem 'pry-rails'

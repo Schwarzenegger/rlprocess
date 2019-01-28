@@ -6,8 +6,8 @@
 %>
 
 <%= simple_form_for(@resource, url: form_url, authenticity_token: true,
-    method: @resource.new_record? ? "POST" : "PUT", remote: true,
-    wrapper: :vertical_form, html: { class: "form-vertical", role: "form", }) do |f| %>
+    method: @resource.new_record? ? "POST" : "PUT", multipart: true,
+    wrapper: :vertical_form, html: { class: "form-vertical", role: "form", name: "nome_do_form" }) do |f| %>
 
   <div class="row">
     <div class="col-xs-12">
@@ -105,6 +105,21 @@
   <div class="row">
     <div class="col-xs-12">
       <%= f.input :observations %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.file_field :uploads, multiple: true, direct_upload: true %>
+    </div>
+  </div>
+
+  <div class="hr-line-dashed"></div>
+
+  <div class="form-group row">
+    <div class="col-sm-4 ">
+      <%= link_to t("link.back"), clients_path, class: "btn btn-white" %>
+      <%= f.button :submit, t('actions.save') , class: "btn btn-primary" %>
     </div>
   </div>
 

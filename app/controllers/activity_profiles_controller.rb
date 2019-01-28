@@ -45,11 +45,11 @@ class ActivityProfilesController < ApplicationController
   def destroy
     if @resource.destroy
       flash[:alert] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.activity_profile'))
-      redirect_to activity_profiles_path
     else
       flash[:alert] = t('activerecord.errors.models.master_activity.delete')
-      redirect_to activity_profiles_path
     end
+
+    redirect_to activity_profiles_path
   end
 
   private

@@ -1,10 +1,9 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_client, only: [:edit, :update, :destroy]
+  before_action :set_client, only: [:edit, :update, :destroy, :show]
 
-  respond_to :html, only: [:index]
-  respond_to :js, except: [:index]
+  respond_to :html
 
   def index
     @q = Client.search(params[:q])
@@ -31,6 +30,10 @@ class ClientsController < ApplicationController
     respond_with(@resource)
   end
 
+  def show
+    respond_with(@resource)
+  end
+
   def update
     @resource_valid = @resource.update(client_params)
 
@@ -39,6 +42,7 @@ class ClientsController < ApplicationController
     if @resource_valid
       flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.client'))
     end
+
     respond_with(@resource)
   end
 
@@ -50,6 +54,12 @@ class ClientsController < ApplicationController
       flash[:alert] = t('activerecord.errors.models.client.delete')
       redirect_to clients_path
     end
+  end
+
+  def delete_attachment
+    @client = Client.find(params[:client_id])
+    @client.uploads.find(params[:attachment_id]).purge
+    respond_with(@client)
   end
 
   private
@@ -77,7 +87,8 @@ class ClientsController < ApplicationController
       :nickname,
       :partner_name,
       :partner_cpf,
-      :observations
+      :observations,
+      uploads: []
     )
   end
 end

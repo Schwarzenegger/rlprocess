@@ -37,7 +37,7 @@ describe "Client Feature Specs", type: :feature do
     end
   end
 
-  describe "Should open a new modal windows" do
+  describe "Should go to client modal" do
     it "Admin should be able to open modal window with form", js: true do
       login_as(admin_user, :scope => :user)
 
@@ -45,13 +45,11 @@ describe "Client Feature Specs", type: :feature do
       expect(page).to have_selector('.open-crud-modal')
       click_on(class: 'open-crud-modal')
 
-      within ".modal" do
-        expect(page).to have_content I18n.t('actions.add_one', model: I18n.t('activerecord.models.client').downcase)
-      end
+      expect(page).to have_content I18n.t('views.clients.edit')
     end
   end
 
-  describe "Should open a edit modal windows" do
+  describe "Should go to client form" do
     it "Admin should be able to open modal edit window with form", js: true do
       client = create(:client)
       login_as(admin_user, :scope => :user)
@@ -60,9 +58,7 @@ describe "Client Feature Specs", type: :feature do
 
       click_on(id: "client-edit-#{client.id}")
 
-      within ".modal" do
-        expect(page).to have_content I18n.t('actions.edit_model', model: I18n.t('activerecord.models.client').downcase)
-      end
+      expect(page).to have_content I18n.t('views.clients.new')
     end
   end
 

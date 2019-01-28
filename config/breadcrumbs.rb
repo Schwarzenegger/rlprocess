@@ -15,5 +15,10 @@ crumb :activity_profiles do
 end
 
 crumb :clients do
-  link I18n.t('views.clients.plural')
+  link I18n.t('views.clients.plural'), clients_path
+end
+
+crumb :client do |client|
+  link I18n.t('activerecord.models.client')
+  parent :clients
 end

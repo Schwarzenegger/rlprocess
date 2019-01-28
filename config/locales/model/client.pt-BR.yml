@@ -11,6 +11,7 @@ pt-BR:
   activerecord:
     models:
       client: "Cliente"
+      upload: "Anexo"
     errors:
       models:
         master_activity:
@@ -35,5 +36,6 @@ pt-BR:
         end_accounting: "Fim Contabilidade"
         honorary: "Honorário"
         observations: "Observações"
+        uploads: "Anexos"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

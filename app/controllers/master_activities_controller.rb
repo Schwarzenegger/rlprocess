@@ -47,11 +47,11 @@ class MasterActivitiesController < ApplicationController
   def destroy
     if @resource.destroy
       flash[:alert] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.master_activity'))
-      redirect_to master_activities_path
     else
       flash[:alert] = t('activerecord.errors.models.master_activity.delete')
-      redirect_to master_activities_path
     end
+
+    redirect_to master_activities_path
   end
 
   private

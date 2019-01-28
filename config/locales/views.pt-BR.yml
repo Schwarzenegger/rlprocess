@@ -5,11 +5,15 @@ pt-BR:
       table_empty: "Sem dados para exibir"
       select_one: "Selecione uma das opções"
       select_multiple: "Selecione uma ou mais das opções"
+      edit: "Editar"
+      new: "Criar"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"
     clients:
       plural: "Clientes"
+      show: "Visualizar cliente"
+      edit: "Editar Dados Cliente"
       new: "Cadastrar novo cliente"
     master_activities:
       plural: "Atividades"

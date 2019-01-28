@@ -1,0 +1,278 @@
+<%= render "layouts/breadcrumb", title: t('views.clients.show'), breadcrumb_key: :client %>
+
+<div class="row">
+  <div class="col-lg-9">
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-9">
+              <div class="m-b-md">
+                <h2><%= @resource.social_name %></h2>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <%= link_to edit_client_path(@resource), class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+              title: t('actions.edit'), id: "client-edit-#{@resource.id}" do %>
+              <i class="fa fa-pencil"></i>
+              <%= t('views.clients.edit') %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.nickname') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.nickname %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.partner_name') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.partner_name %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.municipal_inscription') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.municipal_inscription %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.date_of_founding') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.date_of_founding %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.contact') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.contact %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.iss_password') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.iss_password %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.start_accounting') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.start_accounting %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.telephone') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.telephone %> </span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="col-lg-6" id="cluster_info">
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.cnpj') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.cnpj %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.partner_cpf') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.partner_cpf %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.state_inscription') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.state_inscription %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.taxation') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.taxation %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.email') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.email %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.simples_password') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.simples_password %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.end_accounting') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.end_accounting %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.honorary') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= @resource.honorary %> </span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="row m-t-sm">
+            <div class="col-lg-12">
+              <div class="panel blank-panel">
+                <div class="panel-heading">
+                  <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a class="nav-link active" href="#tab-1" data-toggle="tab">
+                          <%= t('activerecord.attributes.client.uploads') %>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="panel-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab-1">
+                      <div class="feed-activity-list">
+                        <% @resource.uploads.each do |upload|%>
+                          <div class="feed-element">
+                            <%= link_to upload.filename, url_for(upload) %>
+
+                            <span class="pull-right">
+                            <%= link_to delete_attachment_clients_url(attachment_id: upload.id, client_id: @resource.id),
+                                  class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+                                  method: :delete do %>
+                                    <%= fa(:trash) %>
+                            <% end %>
+                            </span>
+
+                          </div>
+                        <% end %>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="wrapper wrapper-content project-manager">
+      <h4><%= t('activerecord.attributes.client.observations') %></h4>
+      <p class="small">
+        <%= @resource.observations%>
+      </p>
+    </div>
+  </div>
+</div>

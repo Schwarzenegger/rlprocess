@@ -6,7 +6,9 @@ class Client < ApplicationRecord
                      deactivated: 4,
                      exempt: 5,
                      others: 6
-}
+  }
+
+  has_many_attached :uploads
 
   validates :cnpj, presence: true
   validates :social_name, presence: true

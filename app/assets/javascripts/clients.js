@@ -2,7 +2,14 @@ var ClientsController = Paloma.controller('Clients');
 
 ClientsController.prototype.index = function() {
   General.enableFootable();
-  General.enableCrudModal();
+};
+
+ClientsController.prototype.new = function() {
+  setupClientForm();
+};
+
+ClientsController.prototype.edit = function() {
+  setupClientForm();
 };
 
 function hideSimplesPassword(){

@@ -16,6 +16,7 @@ capybara-*.html
 /public/system
 /coverage/
 /spec/tmp
+/storage
 /public/assets/
 .byebug_history
 **.orig
@@ -44,3 +45,6 @@ config/initializers/secret_token.rb
 .rbenv-vars
 
 .ruby-version
+
+# Ignore application configuration
+/config/application.yml

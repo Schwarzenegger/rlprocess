@@ -41,17 +41,10 @@ RSpec.describe ClientsController, type: :controller do
         expect { get :new }.to raise_error(CanCan::AccessDenied)
       end
 
-      it "should raise ActionController::UnknownFormat for html" do
-        sign_in_mock_user(admin_user)
-
-
-        expect{get :new}.to raise_error(ActionController::UnknownFormat)
-      end
-
       it "assigns @resource" do
         sign_in_mock_user(admin_user)
 
-        get :new, format: :js, xhr: true
+        get :new
         expect(assigns(:resource)).to be_a_new(Client)
       end
     end
@@ -69,16 +62,10 @@ RSpec.describe ClientsController, type: :controller do
         expect { get :edit, params: { id: client.id } }.to raise_error(CanCan::AccessDenied)
       end
 
-      it "should raise ActionController::UnknownFormat for html" do
-        sign_in_mock_user(admin_user)
-
-        expect{get :edit, params: { id: client.id } }.to raise_error(ActionController::UnknownFormat)
-      end
-
       it "assigns @resource" do
         sign_in_mock_user(admin_user)
 
-        get :edit, params: { id: client.id }, format: :js, xhr: true
+        get :edit, params: { id: client.id }
         expect(assigns(:resource)).to eq(client)
       end
     end
@@ -104,7 +91,6 @@ RSpec.describe ClientsController, type: :controller do
 
         post :create, params: {
           client:  b_client.attributes,
-          format: :js
         }
 
         expect(assigns(:resource).persisted?).to eq(true)
@@ -131,8 +117,7 @@ RSpec.describe ClientsController, type: :controller do
         n_client = create(:client)
 
         put :update, params: { id: n_client.id,
-          client: { social_name: 'New Social Name' } },
-          format: :js
+          client: { social_name: 'New Social Name' } }
         expect(assigns(:resource).social_name).to eq('New Social Name')
         n_client.reload
         expect(n_client.social_name).to eq('New Social Name')

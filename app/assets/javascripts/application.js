@@ -23,5 +23,6 @@
 //= require moment/moment
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require cocoon
+//= require toastr/toastr
 //= require paloma
 //= require_tree .

@@ -29,6 +29,7 @@ gem 'enum_help'
 gem "gretel"
 gem 'cocoon'
 gem "aws-sdk-s3"
+gem "sentry-raven"
 
 group :development, :test do
   gem 'pry-rails'

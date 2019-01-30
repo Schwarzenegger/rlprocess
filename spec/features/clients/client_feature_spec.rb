@@ -37,20 +37,20 @@ describe "Client Feature Specs", type: :feature do
     end
   end
 
-  describe "Should go to client modal" do
+  describe "Should go to client edit page" do
     it "Admin should be able to open modal window with form", js: true do
       login_as(admin_user, :scope => :user)
 
       visit '/clients'
-      expect(page).to have_selector('.open-crud-modal')
-      click_on(class: 'open-crud-modal')
+      expect(page).to have_selector('.new-client')
+      click_on(class: 'new-client')
 
-      expect(page).to have_content I18n.t('views.clients.edit')
+      expect(page).to have_content I18n.t('views.clients.new')
     end
   end
 
-  describe "Should go to client form" do
-    it "Admin should be able to open modal edit window with form", js: true do
+  describe "Should go to client form edit" do
+    it "Admin should be able to edit window", js: true do
       client = create(:client)
       login_as(admin_user, :scope => :user)
 
@@ -58,7 +58,7 @@ describe "Client Feature Specs", type: :feature do
 
       click_on(id: "client-edit-#{client.id}")
 
-      expect(page).to have_content I18n.t('views.clients.new')
+      expect(page).to have_content I18n.t('views.clients.edit')
     end
   end
 

@@ -32,6 +32,10 @@
           <td><%= client.cnpj %></td>
           <td><%= client.email %></td>
           <td class="text-center">
+            <%= link_to client_path(client), class: "btn btn-white btn-bitbucket btn-xs tool-tip",
+              title: t('actions.show') do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
             <%= link_to edit_client_path(client), class: "btn btn-white btn-bitbucket btn-xs tool-tip",
               title: t('actions.edit'),
               id: "client-edit-#{client.id}", data: { url: edit_client_path(client) } do %>

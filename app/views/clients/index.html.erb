@@ -5,7 +5,7 @@
     <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h5><%= t("views.clients.plural") %></h5>
-        <%= link_to new_client_path, class: "btn btn-xs btn-primary pull-right open-crud-modal", data: { url: new_client_path } do %>
+        <%= link_to new_client_path, class: "btn btn-xs btn-primary pull-right new-client", data: { url: new_client_path } do %>
           <%=fa(:plus)%> <%= t("views.clients.plural") %>
         <% end %>
       </div>

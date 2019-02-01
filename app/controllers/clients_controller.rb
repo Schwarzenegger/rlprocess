@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_client, only: [:edit, :update, :destroy, :show]
+  before_action :set_client, only: [:edit, :update, :destroy, :show, :link_activities]
 
   respond_to :html
+  respond_to :js, only: [:edit]
 
   def index
     @q = Client.search(params[:q])
@@ -62,6 +63,16 @@ class ClientsController < ApplicationController
     respond_with(@client)
   end
 
+  def link_activities
+    @resource_valid = @resource.update(client_params)
+
+    @location = clients_path
+
+    if @resource_valid
+      flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.master_activity'))
+    end
+  end
+
   private
 
   def set_client
@@ -87,7 +98,9 @@ class ClientsController < ApplicationController
       :nickname,
       :partner_name,
       :partner_cpf,
+      :payment_frequency,
       :observations,
+      activity_profile_ids: [],
       uploads: []
     )
   end

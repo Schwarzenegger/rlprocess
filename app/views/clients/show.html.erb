@@ -108,6 +108,18 @@
 
               <dl class="row mb-0">
                 <div class="col-sm-4 text-sm-right">
+                  <dt><%= t('activerecord.attributes.client.payment_frequency') %>:
+                  </dt>
+                </div>
+                <div class="col-sm-8 text-sm-left">
+                  <dd class="mb-1">
+                    <span><%= translate_enum('client', 'payment_frequency', @resource.payment_frequency) %> </span>
+                  </dd>
+                </div>
+              </dl>
+
+              <dl class="row mb-0">
+                <div class="col-sm-4 text-sm-right">
                   <dt><%= t('activerecord.attributes.client.telephone') %>:
                   </dt>
                 </div>
@@ -163,7 +175,7 @@
                 </div>
                 <div class="col-sm-8 text-sm-left">
                   <dd class="mb-1">
-                    <span><%= @resource.taxation %> </span>
+                    <span><%= translate_enum('client', 'taxation', @resource.taxation) %> </span>
                   </dd>
                 </div>
               </dl>

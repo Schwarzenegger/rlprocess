@@ -7,6 +7,7 @@ pt-BR:
       select_multiple: "Selecione uma ou mais das opções"
       edit: "Editar"
       new: "Criar"
+      show: "Visualizar"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"
@@ -15,6 +16,8 @@ pt-BR:
       show: "Visualizar cliente"
       edit: "Editar Dados Cliente"
       new: "Cadastrar novo cliente"
+      link: "Associar Atividades"
+      trash: "Remover Cliente"
     master_activities:
       plural: "Atividades"
       new: "Cadastrar nova atividade"

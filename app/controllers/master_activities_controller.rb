@@ -41,6 +41,7 @@ class MasterActivitiesController < ApplicationController
     if @resource_valid
       flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.master_activity'))
     end
+
     respond_with(@resource)
   end
 

@@ -25,7 +25,7 @@ RSpec.describe MasterActivity, type: :model do
     it { should define_enum_for(:frequency).with_values(
                         montly: 1,
                      quarterly: 2,
-                         anual: 3,
+                         annual: 3,
                    single_time: 4 ) }
   end
 

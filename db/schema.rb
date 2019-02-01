@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_113559) do
+ActiveRecord::Schema.define(version: 2019_02_01_135821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2019_01_24_113559) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "activity_profiles_clients", id: false, force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.bigint "activity_profile_id", null: false
+    t.index ["client_id", "activity_profile_id"], name: "client_and_profile_index"
+  end
+
   create_table "activity_profiles_master_activities", id: false, force: :cascade do |t|
     t.bigint "activity_profile_id", null: false
     t.bigint "master_activity_id", null: false
@@ -69,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_113559) do
     t.string "nickname"
     t.string "partner_name"
     t.string "partner_cpf"
+    t.integer "payment_frequency"
   end
 
   create_table "master_activities", force: :cascade do |t|

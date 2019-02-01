@@ -11,6 +11,7 @@ RSpec.describe ActivityProfile, type: :model do
 
   context "Associations" do
     it { should have_and_belong_to_many(:master_activities) }
+    it { should have_and_belong_to_many(:clients) }
   end
 
   context "Validations" do

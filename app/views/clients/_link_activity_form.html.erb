@@ -1,0 +1,11 @@
+<% form_url = url_for(controller: "clients", action: "link_activities") %>
+
+<%= simple_form_for(@resource, url: form_url, authenticity_token: true,
+  method: "PUT", wrapper: :vertical_form,
+  html: { class: "form-vertical", role: "form", name: "nome_do_form" }) do |f| %>
+
+
+  <%= f.association :activity_profiles,
+    input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_multiple') } %>
+
+<% end %>

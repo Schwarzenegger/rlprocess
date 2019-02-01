@@ -8,7 +8,7 @@ pt-BR:
       frequency:
         montly: "Mensal"
         quarterly: "Trimestral"
-        anual: "Anual"
+        annual: "Anual"
         single_time: "Única"
   activerecord:
     models:

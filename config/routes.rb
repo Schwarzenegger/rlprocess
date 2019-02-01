@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     collection do
       delete :delete_attachment
     end
+    member do
+      put :link_activities
+    end
   end
   resources :master_activities
   resources :activity_profiles

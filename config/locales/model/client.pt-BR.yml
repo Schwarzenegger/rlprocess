@@ -8,6 +8,10 @@ pt-BR:
         deactivated: "Inativa"
         exempt: "Imune/Isenta"
         others: "Outros"
+      payment_frequency:
+        montly: "Mensal"
+        quarterly: "Trimestral"
+        annual: "Anual"
   activerecord:
     models:
       client: "Cliente"
@@ -36,6 +40,8 @@ pt-BR:
         end_accounting: "Fim Contabilidade"
         honorary: "Honorário"
         observations: "Observações"
+        activity_profiles: "Perfis das atividades"
+        payment_frequency: "Frequência dos pagamentos"
         uploads: "Anexos"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

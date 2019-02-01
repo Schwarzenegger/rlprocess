@@ -6,8 +6,8 @@
 %>
 
 <%= simple_form_for(@resource, url: form_url, authenticity_token: true,
-    method: @resource.new_record? ? "POST" : "PUT", multipart: true,
-    wrapper: :vertical_form, html: { class: "form-vertical", role: "form", name: "nome_do_form" }) do |f| %>
+  method: @resource.new_record? ? "POST" : "PUT", multipart: true,
+  wrapper: :vertical_form, html: { class: "form-vertical", role: "form", name: "nome_do_form" }) do |f| %>
 
   <div class="row">
     <div class="col-xs-12">
@@ -96,7 +96,11 @@
 
   <%if @current_user.admin? %>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-6">
+        <%= f.input :payment_frequency %>
+      </div>
+
+      <div class="col-xs-6">
         <%= f.input :honorary %>
       </div>
     </div>

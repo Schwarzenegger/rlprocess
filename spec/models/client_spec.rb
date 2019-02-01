@@ -24,6 +24,7 @@ RSpec.describe Client, type: :model do
     it { should respond_to(:nickname) }
     it { should respond_to(:partner_name) }
     it { should respond_to(:partner_cpf) }
+    it { should respond_to(:payment_frequency) }
     it { should respond_to(:created_at) }
     it { should respond_to(:updated_at) }
   end
@@ -36,6 +37,15 @@ RSpec.describe Client, type: :model do
                          deactivated: 4,
                          exempt: 5,
                          others: 6) }
+
+    it { should define_enum_for(:payment_frequency).with_values(
+                            montly: 1,
+                    quarterly: 2,
+                        annual: 3) }
+  end
+
+  context "Associations" do
+    it { should have_and_belong_to_many(:activity_profiles) }
   end
 
   context "Validations" do

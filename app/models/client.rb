@@ -17,6 +17,7 @@ class Client < ApplicationRecord
 
   has_many_attached :uploads
   has_and_belongs_to_many :activity_profiles
+  has_many :payment_histories, dependent: :destroy
 
   validates :cnpj, presence: true
   validates :social_name, presence: true

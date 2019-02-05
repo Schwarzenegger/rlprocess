@@ -56,6 +56,7 @@ describe "Client Feature Specs", type: :feature do
 
       visit '/clients'
 
+      click_on(id: "client-actions-#{client.id}")
       click_on(id: "client-edit-#{client.id}")
 
       expect(page).to have_content I18n.t('views.clients.edit')
@@ -69,10 +70,53 @@ describe "Client Feature Specs", type: :feature do
 
       visit '/clients'
 
+      click_on(id: "client-actions-#{client.id}")
       click_on(id: "client-delete-#{client.id}")
       accept_alert
       expect(page).to have_content I18n.t('flash.actions.destroy.notice', resource_name: I18n.t('activerecord.models.client'))
+    end
+  end
 
+  describe "Should be able to visualize client" do
+    it "Admin should be able to show a client", js: true do
+      client = create(:client)
+      login_as(admin_user, :scope => :user)
+
+      visit '/clients'
+
+      click_on(id: "client-actions-#{client.id}")
+      click_on(id: "client-show-#{client.id}")
+
+      expect(page).to have_content client.observations
+      expect(page.current_path).to eq client_path(client)
+    end
+  end
+
+  describe "Should be able to visualize client" do
+    it "Admin should be able to show a client", js: true do
+      client = create(:client)
+      login_as(admin_user, :scope => :user)
+
+      visit '/clients'
+
+      click_on(id: "client-actions-#{client.id}")
+      click_on(id: "client-link-#{client.id}")
+
+      expect(page).to have_content I18n.t('activerecord.attributes.client.activity_profiles')
+    end
+  end
+
+  describe "Should be able to visualize client" do
+    it "Admin should be able to show a client", js: true do
+      client = create(:client)
+      login_as(admin_user, :scope => :user)
+
+      visit '/clients'
+
+      click_on(id: "client-actions-#{client.id}")
+      click_on(id: "client-payments-#{client.id}")
+
+      expect(page).to have_content I18n.t('activerecord.attributes.payment_history.value')
     end
   end
 

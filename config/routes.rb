@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :master_activities
   resources :activity_profiles
+  resources :payment_histories
 
   root to: 'users#index'
 end

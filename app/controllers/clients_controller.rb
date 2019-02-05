@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_client, only: [:edit, :update, :destroy, :show, :link_activities]
+  before_action :set_client, only: [:edit, :update,
+                  :destroy, :link_activities, :get_to_link, :get_to_payment]
 
   respond_to :html
   respond_to :js, only: [:edit]
@@ -32,6 +33,8 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @resource = Client.with_attached_uploads.find(params[:id])
+
     respond_with(@resource)
   end
 

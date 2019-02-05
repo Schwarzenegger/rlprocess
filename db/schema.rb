@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_135821) do
+ActiveRecord::Schema.define(version: 2019_02_04_121050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,15 @@ ActiveRecord::Schema.define(version: 2019_02_01_135821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["master_activity_id"], name: "index_master_checklist_options_on_master_activity_id"
+  end
+
+  create_table "payment_histories", force: :cascade do |t|
+    t.bigint "client_id"
+    t.date "receipt_date"
+    t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_payment_histories_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|

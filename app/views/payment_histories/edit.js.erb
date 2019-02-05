@@ -1,0 +1,4 @@
+$('div#client-form-container').html("<%= escape_javascript(render partial: 'form') %>");
+$(".modal-title").html("<%=t('actions.add', model: t('activerecord.models.payment_history').downcase)%>");
+showModalWindow("client-modal");
+setupComponents()

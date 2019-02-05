@@ -36,22 +36,32 @@
 
               <%= link_to "#", class: "btn btn-white btn-bitbucket btn-xs tool-tip dropdown-toggle",
                 "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false",
-                title: t('actions.show') do %>
+                id: "client-actions-#{client.id}", title: t('actions.show') do %>
                 <i class="fa fa-wrench"></i>
               <% end %>
               <ul class="dropdown-menu dropdown-menu-right" role="menu">
                 <li>
-                   <%= link_to client_path(client), class: "btn btn-bitbucket btn-xs tool-tip",
-                     title: t('actions.show') do %>
-                     <i class="fa fa-eye"></i> <%= t('views.clients.show') %>
-                   <% end %>
+                  <%= link_to client_path(client), class: "btn btn-bitbucket btn-xs tool-tip",
+                     id: "client-show-#{client.id}", title: t('actions.show') do %>
+                    <i class="fa fa-eye"></i> <%= t('views.clients.show') %>
+                  <% end %>
                 </li>
-                 <li>
+
+                <li>
+                  <%= link_to "", class: "btn btn-bitbucket btn-xs tool-tip", onclick: "editModal(event);",
+                    title: t('actions.edit'), id: "client-link-#{client.id}", data: { url: edit_client_path(client) } do %>
+                    <i class="fa fa-link"></i> <%= t('views.clients.link') %>
+                  <% end %>
+                </li>
+                <%if @current_user.admin? %>
+                  <li>
                     <%= link_to "", class: "btn btn-bitbucket btn-xs tool-tip", onclick: "editModal(event);",
-                      title: t('actions.edit'), id: "client-link-#{client.id}", data: { url: edit_client_path(client) } do %>
-                      <i class="fa fa-link"></i> <%= t('views.clients.link') %>
+                      title: t('actions.edit'), id: "client-payments-#{client.id}", data: { url: new_payment_history_path(client_id: client) } do %>
+                      <i class="fa fa-money"></i> <%= t('views.clients.add_payment') %>
                     <% end %>
-                </li>
+                  </li>
+                <% end %>
+
                 <li>
                     <%= link_to edit_client_path(client), class: "btn btn-bitbucket btn-xs tool-tip",
                    title: t('actions.edit'),
@@ -59,6 +69,7 @@
                    <i class="fa fa-pencil"></i> <%= t('views.clients.edit') %>
                  <% end %>
                 </li>
+
                 <li>
                   <%= link_to client_path(client), class: "btn btn-xs btn-bitbucket tool-tip" ,
                     id: "client-delete-#{client.id}", title: t('actions.destroy'), data: { confirm: exclude_message }, method: :delete do %>

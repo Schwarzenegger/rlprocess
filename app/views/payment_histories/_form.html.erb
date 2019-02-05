@@ -1,0 +1,29 @@
+<%
+  form_url = url_for(controller: "payment_histories", action: "create")
+  if !@resource.new_record?
+    form_url = url_for(controller: "payment_histories", action: "update", id: @resource.id)
+  end
+%>
+
+<%= simple_form_for(@resource, url: form_url, authenticity_token: true,
+  method: @resource.new_record? ? "POST" : "PUT", remote: true,
+  wrapper: :vertical_form, html: { class: "form-vertical", role: "form", }) do |f| %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :client_id, as: :hidden %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :receipt_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :value %>
+    </div>
+  </div>
+<% end %>

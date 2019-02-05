@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      payment_history: "Pagamentos"
+    errors:
+      models:
+        payment_history:
+          delete: "Não foi possivel deletar Atividade"
+    attributes:
+      payment_history:
+        client: "Cliente"
+        receipt_date: "Data Recebimento"
+        value: "Valor recebido"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"

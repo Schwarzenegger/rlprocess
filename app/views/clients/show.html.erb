@@ -241,6 +241,11 @@
                           <%= t('activerecord.attributes.client.uploads') %>
                         </a>
                       </li>
+                      <li>
+                        <a class="nav-link" href="#tab-2" data-toggle="tab">
+                          <%= t('activerecord.attributes.client.payment_frequencies') %>
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -252,7 +257,6 @@
                         <% @resource.uploads.each do |upload|%>
                           <div class="feed-element">
                             <%= link_to upload.filename, url_for(upload) %>
-
                             <span class="pull-right">
                             <%= link_to delete_attachment_clients_url(attachment_id: upload.id, client_id: @resource.id),
                                   class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
@@ -260,10 +264,60 @@
                                     <%= fa(:trash) %>
                             <% end %>
                             </span>
-
                           </div>
                         <% end %>
+                      </div>
+                    </div>
 
+                    <div class="tab-pane" id="tab-2">
+                      <div class="feed-activity-list">
+                        <% payment_histories = @resource.payment_histories%>
+                        <% if payment_histories.length > 0 %>
+
+                          <% payment_histories.each do |ph|%>
+                            <div class="feed-element">
+                              <dl class="row mb-0">
+                                <div class="col-sm-2 text-sm-right">
+                                  <dt><%= t('activerecord.attributes.payment_history.receipt_date') %>:
+                                  </dt>
+                                </div>
+                                <div class="col-sm-4 text-sm-left">
+                                  <dd class="mb-1">
+                                    <span><%= ph.receipt_date %> </span>
+                                  </dd>
+                                </div>
+
+                                <div class="col-sm-2 text-sm-right">
+                                  <dt><%= t('activerecord.attributes.client.value') %>:
+                                  </dt>
+                                </div>
+                                <div class="col-sm-2 text-sm-left">
+                                  <dd class="mb-1">
+                                    <span><%= ph.value %> </span>
+                                  </dd>
+                                </div>
+                                <%if @current_user.admin? %>
+                                  <div class="col-sm-2 text-sm-right">
+                                    <%= link_to "", class: "btn btn-xs btn-white btn-bitbucket tool-tip", onclick: "editModal(event);",
+                                      title: t('actions.edit'), id: "payment-history-link-#{ph.id}", data: { url: edit_payment_history_path(ph) } do %>
+                                      <i class="fa fa-pencil"></i>
+                                    <% end %>
+
+                                    <%= link_to payment_history_path(ph.id),
+                                        class: "btn btn-xs btn-white btn-bitbucket tool-tip" ,
+                                        method: :delete do %>
+                                          <%= fa(:trash) %>
+                                    <% end %>
+                                  </div>
+                                <% end %>
+                              </dl>
+                            </div>
+                          <% end %>
+                        <% else %>
+                          <div class="text-center" style="padding-bottom: 30px;">
+                            <%= t('views.general.table_empty') %>
+                          </div>
+                        <% end %>
                       </div>
 
                     </div>
@@ -288,3 +342,5 @@
     </div>
   </div>
 </div>
+
+<%= render partial: 'layouts/crud_modal', locals: { modal_id: "client", modal_title: t('actions.add_one', model: t('activerecord.models.client').downcase) } %>

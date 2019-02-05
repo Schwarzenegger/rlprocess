@@ -43,5 +43,6 @@ pt-BR:
         activity_profiles: "Perfis das atividades"
         payment_frequency: "Frequência dos pagamentos"
         uploads: "Anexos"
+        payment_frequencies: "Histórico Pagamentos"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

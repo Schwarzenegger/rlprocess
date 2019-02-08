@@ -2,3 +2,4 @@ $('div#client-form-container').html("<%= escape_javascript(render partial: 'link
 $(".modal-title").html("<%=t('actions.edit_model', model: t('activerecord.models.client').downcase)%>");
 showModalWindow("client-modal");
 setupComponents()
+addActivitiesOnProfileChange();

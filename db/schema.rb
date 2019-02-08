@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_121050) do
+ActiveRecord::Schema.define(version: 2019_02_06_130947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2019_02_04_121050) do
     t.bigint "activity_profile_id", null: false
     t.bigint "master_activity_id", null: false
     t.index ["activity_profile_id", "master_activity_id"], name: "activity_and_profiles_index"
+  end
+
+  create_table "client_user_activities", force: :cascade do |t|
+    t.bigint "client_id"
+    t.bigint "user_id"
+    t.bigint "master_activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_user_activities_on_client_id"
+    t.index ["master_activity_id"], name: "index_client_user_activities_on_master_activity_id"
+    t.index ["user_id"], name: "index_client_user_activities_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|

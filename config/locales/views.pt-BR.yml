@@ -19,6 +19,8 @@ pt-BR:
       link: "Associar Atividades"
       trash: "Remover Cliente"
       add_payment: "Adicionar pagamento"
+      add_extra_activity: "Adicionar uma atividade"
+      remove_activity: "Remover Atividade"
     master_activities:
       plural: "Atividades"
       new: "Cadastrar nova atividade"

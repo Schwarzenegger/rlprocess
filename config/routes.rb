@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :clients do
     collection do
       delete :delete_attachment
+      get :handle_profile_change
     end
     member do
       put :link_activities

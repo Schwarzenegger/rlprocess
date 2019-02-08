@@ -1,0 +1,6 @@
+<% if @add_more %>
+  <% @activity_profile.master_activities.each do |activity| %>
+    $(".add_activity").trigger( "click" )
+    $('.master_activity').last().val("<%= activity.id %>")
+  <% end %>
+<% end %>

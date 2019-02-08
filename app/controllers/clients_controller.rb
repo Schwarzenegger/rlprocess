@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
                   :destroy, :link_activities, :get_to_link, :get_to_payment]
 
   respond_to :html
-  respond_to :js, only: [:edit]
+  respond_to :js, only: [:edit, :handle_profile_change]
 
   def index
     @q = Client.search(params[:q])
@@ -76,6 +76,15 @@ class ClientsController < ApplicationController
     end
   end
 
+  def handle_profile_change
+    if !params['selected_id'].blank?
+      @add_more = true
+      @activity_profile = ActivityProfile.find(params['selected_id'])
+    elsif !params['deselected_id'].blank?
+
+    end
+  end
+
   private
 
   def set_client
@@ -104,7 +113,8 @@ class ClientsController < ApplicationController
       :payment_frequency,
       :observations,
       activity_profile_ids: [],
-      uploads: []
+      uploads: [],
+      client_user_activities_attributes: [:id, :client_id, :master_activity_id, :user_id, :_destroy]
     )
   end
 end

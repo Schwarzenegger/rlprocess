@@ -1,6 +1,7 @@
 <% if @resource_valid %>
   window.location = "<%=@location%>";
 <% else %>
-  $('div#client-form-container').html("<%= escape_javascript(render partial: 'form') %>");
-  setupComponents()
+  $('div#client-form-container').html("<%= escape_javascript(render partial: 'link_activity_form') %>");
+  setupComponents();
+  addActivitiesOnProfileChange();
 <% end %>

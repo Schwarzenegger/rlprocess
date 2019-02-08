@@ -8,4 +8,15 @@
   <%= f.association :activity_profiles,
     input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_multiple') } %>
 
+  <div id="client_user_activities">
+    <%= f.simple_fields_for :client_user_activities do |mco| %>
+      <%= render 'client_user_activity_fields', f: mco %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association t('views.clients.add_extra_activity'),
+          f, :client_user_activities, class: "btn btn-xs btn-primary pull-right add_activity" %>
+    </div>
+  </div>
+
 <% end %>

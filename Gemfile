@@ -30,6 +30,8 @@ gem "gretel"
 gem 'cocoon'
 gem "aws-sdk-s3"
 gem "sentry-raven"
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
 
 group :development, :test do
   gem 'pry-rails'

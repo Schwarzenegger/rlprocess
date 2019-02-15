@@ -6,6 +6,9 @@ class User < ApplicationRecord
              manager: 2,
             employee: 3 }
 
+  has_many :activities
+  has_many :client_user_activities
+
   validates :name, presence: true
   validates :role, presence: true
   validates :email, presence: true

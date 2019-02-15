@@ -8,6 +8,8 @@ pt-BR:
       edit: "Editar"
       new: "Criar"
       show: "Visualizar"
+    dashboard:
+      dashboard: Dashboard
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

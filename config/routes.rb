@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :activity_profiles
   resources :payment_histories
 
-  root to: 'users#index'
+  get '/dashboard', to: 'dashboard#index'
+
+  root to: 'dashboard#index'
 end

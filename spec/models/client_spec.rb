@@ -48,6 +48,7 @@ RSpec.describe Client, type: :model do
     it { should have_and_belong_to_many(:activity_profiles) }
     it { should have_many(:payment_histories).dependent(:destroy) }
     it { should have_many(:client_user_activities).dependent(:destroy) }
+    it { should have_many(:activities) }
   end
 
   context "Validations" do

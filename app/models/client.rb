@@ -19,6 +19,7 @@ class Client < ApplicationRecord
   has_and_belongs_to_many :activity_profiles
   has_many :payment_histories, dependent: :destroy
   has_many :client_user_activities, dependent: :destroy
+  has_many :activities
   accepts_nested_attributes_for :client_user_activities, reject_if: :all_blank, allow_destroy: true
 
   validates :cnpj, presence: true

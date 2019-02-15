@@ -31,6 +31,8 @@ RSpec.describe MasterActivity, type: :model do
 
   context "Associations" do
     it { should have_and_belong_to_many(:activity_profiles) }
+    it { should have_many(:client_user_activities) }
+    it { should have_many(:activities) }
   end
 
   context "Validations" do

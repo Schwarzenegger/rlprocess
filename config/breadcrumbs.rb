@@ -22,3 +22,7 @@ crumb :client do |client|
   link I18n.t('activerecord.models.client')
   parent :clients
 end
+
+crumb :dashboard do
+  link I18n.t('views.dashboard.dashboard'), dashboard_path
+end

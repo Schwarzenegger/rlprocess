@@ -1,0 +1,25 @@
+pt-BR:
+  enums:
+    activity:
+      status:
+        todo: "TO DO"
+        doing: "Doing"
+        done: "Done"
+        archived: "Arquivada"
+  activerecord:
+    models:
+      activity: "Atividade"
+    errors:
+      models:
+        activity:
+          delete: "Não foi possivel deletar Atividade"
+    attributes:
+      activity:
+        client: "Cliente"
+        master_activity: "Atividade Pai"
+        user: "Usuário responsável"
+        status: "Status"
+        identifier: "Identificador"
+        deadline: "Deadline"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"

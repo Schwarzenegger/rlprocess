@@ -27,6 +27,13 @@
         <div class="logo-element">RL</div>
       </li>
 
+      <li class="<%= 'active' if params[:controller] == 'dashboard' %>">
+        <%= active_link_to dashboard_path do %>
+          <%= fa(:columns) %>
+          <span class="nav-label"><%= t("views.dashboard.dashboard")%></span>
+        <% end %>
+      </li>
+
       <% if can?(:index, User) %>
         <li class="<%= 'active' if params[:controller] == 'users' %>">
           <%= active_link_to users_path do %>

@@ -30,6 +30,12 @@ RSpec.describe User, type: :model do
                   employee: 3) }
   end
 
+  context "Associations" do
+    it { should have_many(:client_user_activities) }
+    it { should have_many(:activities) }
+  end
+
+
   context "Validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:email) }

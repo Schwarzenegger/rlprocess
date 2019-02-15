@@ -72,6 +72,7 @@ class ClientsController < ApplicationController
     @location = clients_path
 
     if @resource_valid
+      ActivityWorker.perform_async(@resource.client_user_activities.ids)
       flash[:notice] = t('flash.actions.update.notice', resource_name: t('activerecord.models.master_activity'))
     end
   end

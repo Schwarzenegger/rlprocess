@@ -33,7 +33,7 @@
     </div>
 
     <div class="col-xs-4 deadline-day-col">
-      <%= f.input :deadline_day %>
+      <%= f.input :deadline_day, input_html: {min: 1, max: 31} %>
     </div>
 
     <div class="col-xs-4 deadline-month-col">

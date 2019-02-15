@@ -3,6 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require 'capybara/rspec'
 require "selenium/webdriver"
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
 
 Capybara.register_driver :chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new(

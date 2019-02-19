@@ -32,6 +32,9 @@ gem "aws-sdk-s3"
 gem "sentry-raven"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'stateful_enum'
 
 group :development, :test do
   gem 'pry-rails'

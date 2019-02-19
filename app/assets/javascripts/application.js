@@ -11,15 +11,18 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require jquery/dist/jquery.min.js
-//= require bootstrap-sprockets
-//= require metismenu/dist/metisMenu.min.js
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require jquery.ui.touch-punch.min.js
 //= require jquery-slimscroll/jquery.slimscroll.min.js
-//= require icheck/icheck.min
-//= require footable/js/footable
 //= require jquery-mask-plugin
 //= require chosen-js/chosen.jquery.min
+//= require activestorage
+//= require bootstrap-sprockets
+//= require metismenu/dist/metisMenu.min.js
+//= require icheck/icheck.min
+//= require footable/js/footable
 //= require moment/moment
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require cocoon

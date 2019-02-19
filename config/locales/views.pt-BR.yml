@@ -10,6 +10,9 @@ pt-BR:
       show: "Visualizar"
     dashboard:
       dashboard: Dashboard
+      todo: "TODO"
+      doing: "Em andamento"
+      done: "Finalizadas"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

@@ -10,7 +10,7 @@ describe "Sign In", type: :feature do
       fill_in 'user_password', :with => 'password'
     end
     click_button I18n.t('devise.sessions.sign_in')
-    expect(page).to have_content I18n.t('flash.devise.sessions.create.notice')
+    expect(page.current_path).to eq root_path
   end
 
   it "Unsucessfull Sign In" do
@@ -20,6 +20,6 @@ describe "Sign In", type: :feature do
       fill_in 'user_password', :with => 'wrong_password'
     end
     click_button I18n.t('devise.sessions.sign_in')
-    expect(page).to have_content I18n.t('devise.failure.invalid')
+    expect(page.current_path).to eq "/users/sign_in"
   end
 end

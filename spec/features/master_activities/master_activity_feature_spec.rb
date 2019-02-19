@@ -33,7 +33,7 @@ describe "Master Activity Feature Spec", type: :feature do
 
     it "Try to see the page without being logged in" do
       visit '/master_activities'
-      expect(page).to have_content I18n.t('devise.failure.unauthenticated')
+      expect(page.current_path).to eq "/users/sign_in"
     end
   end
 

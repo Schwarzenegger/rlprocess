@@ -1,19 +1,17 @@
 module ApplicationHelper
   def display_flash_messages(flash)
-    html = ""
+    flash_messages = []
     flash.each do |type, message|
       unless message.blank?
-        html << content_tag(:div, class: "flash-message alert #{ bootstrap_class_for(type) } alert-dismissable alert-modal") do
-          content_tag(:span, message) + content_tag(:button, "x", class: "close", "data-dismiss" => "alert" )
-        end
+        type = 'success' if type == 'notice'
+        type = 'error'   if type == 'alert'
+        text = "<script>toastr.#{type}('#{message}');</script>"
+        flash_messages << text.html_safe if message
       end
     end
 
-    if html.blank?
-      return nil
-    else
-      return html.html_safe
-    end
+    flash_messages.join("\n").html_safe
+
   end
 
   def fa(image)

@@ -10,11 +10,12 @@
 </head>
 <body class="mini-sidebar">
   <div id="wrapper">
+    <%= display_flash_messages(flash) %>
     <%= render 'layouts/navigation' %>
+
     <div class="gray-bg" id="page-wrapper">
       <%= render 'layouts/topnavbar' %>
           <%= content_for?(:breadcrumb) ? yield(:breadcrumb) : "" %>
-          <%= display_flash_messages(flash) %>
           <div class="wrapper wrapper-content">
 
             <%= yield %>

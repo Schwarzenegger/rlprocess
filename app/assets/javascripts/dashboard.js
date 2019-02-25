@@ -1,7 +1,11 @@
 var DashboardController = Paloma.controller('Dashboard');
 
 DashboardController.prototype.index = function() {
+  showActivityInformation();
+  handleSortableLists();
+};
 
+function showActivityInformation(){
   $('ul').on('click', 'li', function(event) {
 
       var activityId = $(this).attr("id").split('-')[1]
@@ -14,8 +18,9 @@ DashboardController.prototype.index = function() {
         }
       });
   });
+}
 
-
+function handleSortableLists(){
   $("#todo, #inprogress, #completed").sortable({
       connectWith: ".connectList",
       update: function( event, ui ) {
@@ -33,10 +38,7 @@ DashboardController.prototype.index = function() {
         }
       }
   }).disableSelection();
-
-
-
-};
+}
 
 function whenOptionIsChecked(){
   $('.i-checks').on('ifChanged', function(event) {

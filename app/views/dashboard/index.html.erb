@@ -32,10 +32,14 @@
           <ul class="sortable-list connectList agile-list ui-sortable" id="inprogress">
             <% @doing.each do |activity| %>
               <li class="<%= activity_element_color(activity) %> ui-sortable-handle" id="activity-<%= activity.id%>">
-                <%= activity.name%>
+                <dd><%= fa_icon("tasks") %> <%= activity.name%></dd>
+                <dd><%= fa_icon("building") %> <%= activity.nickname%></dd>
+
                 <div class="agile-detail">
-                  <a href="#" class="float-right btn btn-xs btn-white">Mark</a>
-                  <i class="fa fa-clock-o"></i> <%= l activity.deadline%>
+                  <% if current_user.admin? %>
+                    <a href="#" class="float-right"><%= activity.user.name%></a>
+                  <% end %>
+                  <%= fa_icon("clock-o") %> <%= l activity.deadline%>
                 </div>
               </li>
             <% end %>
@@ -50,10 +54,14 @@
           <ul class="sortable-list connectList agile-list ui-sortable" id="completed">
             <% @done.each do |activity| %>
               <li class="<%= activity_element_color(activity) %> ui-sortable-handle" id="activity-<%= activity.id%>">
-                <%= activity.name%>
+                <dd><%= fa_icon("tasks") %> <%= activity.name%></dd>
+                <dd><%= fa_icon("building") %> <%= activity.nickname%></dd>
+
                 <div class="agile-detail">
-                  <a href="#" class="float-right btn btn-xs btn-white">Mark</a>
-                  <i class="fa fa-clock-o"></i> <%= l activity.deadline%>
+                  <% if current_user.admin? %>
+                    <a href="#" class="float-right"><%= activity.user.name%></a>
+                  <% end %>
+                  <%= fa_icon("clock-o") %> <%= l activity.deadline%>
                 </div>
               </li>
             <% end %>

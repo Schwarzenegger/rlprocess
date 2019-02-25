@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="row">
+        <div class="col-lg-6">
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.client') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%= @resource.nickname %> </span>
+              </dd>
+            </div>
+          </dl>
+
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.deadline') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%=  ldate @resource.deadline %> </span>
+              </dd>
+            </div>
+          </dl>
+
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.when_moved_to_progress') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%=  ldate @resource.when_moved_to_progress %> </span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="col-lg-6" id="cluster_info">
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.status') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%= translate_enum('activity', 'status', @resource.status) %> </span>
+              </dd>
+            </div>
+          </dl>
+
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.identifier') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%= @resource.identifier %> </span>
+              </dd>
+            </div>
+          </dl>
+
+          <dl class="row mb-0">
+            <div class="col-sm-4 text-sm-right">
+              <dt><%= t('activerecord.attributes.activity.when_moved_to_done') %>:
+              </dt>
+            </div>
+            <div class="col-sm-8 text-sm-left">
+              <dd class="mb-1">
+                <span><%=  ldate @resource.when_moved_to_done %> </span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <% @resource.activiy_check_lists.each do |acl| %>
+          <div class="form-group">
+             <div class="i-checks custom-text-color">
+              <%= check_box_tag "acl-#{acl.id}", "yes", acl.done, class: "activity-checkbox" %>
+              <%= acl.name %>
+             </div>
+           </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

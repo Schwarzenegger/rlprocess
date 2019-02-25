@@ -3,9 +3,9 @@ class DashboardController < ApplicationController
 
   def index
     if current_user.admin?
-      activities = Activity.includes(:master_activity).all.order(:deadline)
+      activities = Activity.includes(:master_activity, :client, :user).all.order(:deadline)
     else
-      activities = Activity.where(user_id: current_user).order(:deadline)
+      activities = Activity.includes(:master_activity, :client).where(user_id: current_user).order(:deadline)
     end
 
     @todo = activities.todo

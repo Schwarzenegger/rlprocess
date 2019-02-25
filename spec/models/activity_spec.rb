@@ -25,6 +25,7 @@ RSpec.describe Activity, type: :model do
     it { should belong_to(:client) }
     it { should belong_to(:user) }
     it { should belong_to(:master_activity) }
+    it { should have_many(:activiy_check_lists) }
   end
 
   context "Enums" do

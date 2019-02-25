@@ -26,6 +26,8 @@ pt-BR:
       add_payment: "Adicionar pagamento"
       add_extra_activity: "Adicionar uma atividade"
       remove_activity: "Remover Atividade"
+      select_activity: "Sel. Atividade"
+      select_user: "Sel. Usuário"
     master_activities:
       plural: "Atividades"
       new: "Cadastrar nova atividade"

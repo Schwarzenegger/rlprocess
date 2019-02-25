@@ -30,4 +30,5 @@ class Client < ApplicationRecord
   validates :telephone, presence: true
   validates :email, presence: true
   validates :start_accounting, presence: true
+  validates :nickname, presence: true
 end

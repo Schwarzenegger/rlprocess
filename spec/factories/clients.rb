@@ -15,5 +15,6 @@ FactoryBot.define do
     end_accounting { Date.today }
     honorary { Faker::Number.decimal(2) }
     observations { Faker::Lorem.sentences }
+    nickname { Faker::Company.name }
   end
 end

@@ -18,9 +18,18 @@ pt-BR:
       upload: "Anexo"
     errors:
       models:
+        client_user_activity:
+          attributes:
+            master_activity:
+              required: "Atividade não pode ficar em branco"
+            user:
+              required: "Usuário não pode ficar em branco"
         master_activity:
           delete: "Não foi possivel deletar Cliente"
     attributes:
+      client_user_activity:
+        master_activity: "Atividade"
+        user: "Usuário"
       client:
         cnpj: "CNPJ"
         nickname: "Apelido"

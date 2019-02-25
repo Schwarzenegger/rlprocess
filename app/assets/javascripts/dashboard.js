@@ -1,6 +1,21 @@
 var DashboardController = Paloma.controller('Dashboard');
 
 DashboardController.prototype.index = function() {
+
+  $('ul').on('click', 'li', function(event) {
+
+      var activityId = $(this).attr("id").split('-')[1]
+
+      $.ajax({
+        type: "GET",
+        url: "/activities/" + activityId,
+        dataType: 'script',
+        success: function() {
+        }
+      });
+  });
+
+
   $("#todo, #inprogress, #completed").sortable({
       connectWith: ".connectList",
       update: function( event, ui ) {
@@ -20,4 +35,19 @@ DashboardController.prototype.index = function() {
   }).disableSelection();
 
 
+
 };
+
+function whenOptionIsChecked(){
+  $('.i-checks').on('ifChanged', function(event) {
+    var optionId = event.target.id.split('-')[1]
+
+    $.ajax({
+      type: "PUT",
+      url: '/activities/mark_option',
+      dataType: 'script',
+      data: { checked: event.target.checked, optionId: optionId }
+    });
+
+  });
+}

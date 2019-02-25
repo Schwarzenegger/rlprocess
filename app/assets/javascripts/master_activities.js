@@ -66,17 +66,9 @@ function onFrequenceChange(){
   });
 }
 
-function handleCheckBoxOptions(){
-  $('.i-checks').on('ifChanged', function(event) {
-    alert('checked = ' + event.target.checked);
-    alert('value = ' + event.target.value);
-  });
-
-}
 
 function setupMasterActivityForm(){
   setupComponents();
   setupFrequencyFields();
   onFrequenceChange();
-  handleCheckBoxOptions();
 }

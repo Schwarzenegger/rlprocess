@@ -2,8 +2,12 @@ class Activity < ApplicationRecord
   belongs_to :client
   belongs_to :user
   belongs_to :master_activity
+  has_many :activiy_check_lists
 
   validates :identifier, presence: true, uniqueness: true
+
+  delegate :name, to: :master_activity
+  delegate :nickname, to: :client
 
   enum status: {
         todo: 1,
@@ -45,8 +49,6 @@ class Activity < ApplicationRecord
     end
 
   end
-
-  delegate :name, to: :master_activity
 
   def is_past_deadlines?
     if Date.today > self.deadline

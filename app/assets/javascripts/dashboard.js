@@ -3,12 +3,54 @@ var DashboardController = Paloma.controller('Dashboard');
 DashboardController.prototype.index = function() {
   showActivityInformation();
   handleSortableLists();
+  startActivity();
+  restartActivity();
+  finishActivity();
 };
 
-function showActivityInformation(){
-  $('ul').on('click', 'li', function(event) {
+function startActivity(){
+  $('.start-activity').on('click', function(event) {
+    var activityId = $(this).attr("id").split('-')[2]
+    $.ajax({
+      type: "PUT",
+      url: "/activities/" + activityId + "/start_activity",
+      dataType: 'script',
+      success: function() {
+      }
+    });
+  });
+}
 
-      var activityId = $(this).attr("id").split('-')[1]
+function restartActivity(){
+  $('.restart-activity').on('click', function(event) {
+    var activityId = $(this).attr("id").split('-')[2]
+    $.ajax({
+      type: "PUT",
+      url: "/activities/" + activityId + "/restart_activity",
+      dataType: 'script',
+      success: function() {
+      }
+    });
+  });
+}
+
+function finishActivity(){
+  $('.finish-activity').on('click', function(event) {
+    var activityId = $(this).attr("id").split('-')[2]
+    $.ajax({
+      type: "PUT",
+      url: "/activities/" + activityId + "/finish_activity",
+      dataType: 'script',
+      success: function() {
+      }
+    });
+  });
+}
+
+function showActivityInformation(){
+  $('.activity-details').on('click', function(event) {
+
+      var activityId = $(this).attr("id").split('-')[2]
 
       $.ajax({
         type: "GET",

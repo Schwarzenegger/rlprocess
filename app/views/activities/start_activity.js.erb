@@ -1,0 +1,5 @@
+$("#activity-<%=@resource.id%>").html("<%= escape_javascript(render partial: 'activity_row', locals: { activity: @resource })%>");
+startActivity();
+restartActivity();
+finishActivity();
+showActivityInformation();

@@ -3,15 +3,14 @@ class DashboardController < ApplicationController
 
   def index
     if current_user.admin?
-      activities = Activity.includes(:master_activity, :client, :user).all.order(:deadline)
+      @q = Activity.includes(:master_activity, :client, :user).ransack(params[:q])
     else
-      activities = Activity.includes(:master_activity, :client).where(user_id: current_user).order(:deadline)
+      @q = Activity.includes(:master_activity, :client).where(user_id: current_user).ransack(params[:q])
     end
 
-    @todo = activities.todo
-    @doing = activities.doing
-    @done = activities.done
+    @q.sorts = ['status asc', 'deadline asc'] if @q.sorts.empty?
 
+    @activities = @q.result
   end
 
 end

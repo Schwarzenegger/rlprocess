@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   resources :payment_histories
 
   resources :activities, only: [:update, :show] do
+    member do
+      put :start_activity
+      put :finish_activity
+      put :restart_activity
+    end
     collection do
       put :mark_option
     end

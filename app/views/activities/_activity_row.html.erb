@@ -1,0 +1,39 @@
+<td>
+  <span class="label label-primary">
+    <% if activity.todo? %>
+    <%= t('views.dashboard.todo')%>
+  <% elsif activity.doing? %>
+    <%= t('views.dashboard.doing')%>
+  <% elsif activity.done? %>
+    <%= t('views.dashboard.done')%>
+  <% end %>
+  </span>
+</td>
+<td class="issue-info">
+  <a id="activity-details-<%= activity.id %>" class="activity-details">
+    <%= activity.name %>
+  </a>
+
+  <small>
+    <%= activity.nickname %>
+  </small>
+</td>
+<td>
+  <%= activity.user.name %>
+</td>
+<td>
+  <%= ldate activity.deadline %>
+</td>
+<td>
+  <%= how_close_to_deadline(activity) %>
+</td>
+<td class="text-right">
+  <% if activity.todo? %>
+    <button class="btn btn-white btn-xs start-activity" id="start-activity-<%= activity.id %>"><%= t('views.dashboard.start')%></button>
+  <% elsif activity.doing? %>
+    <button class="btn btn-white btn-xs finish-activity" id="finish-activity-<%= activity.id %>"><%= t('views.dashboard.finish')%></button>
+    <button class="btn btn-white btn-xs restart-activity" id="restart-activity-<%= activity.id %>"><%= t('views.dashboard.start_over')%></button>
+  <% else activity.done? %>
+    <button class="btn btn-white btn-xs restart-activity" id="restart-activity-<%= activity.id %>"><%= t('views.dashboard.start_over')%></button>
+  <% end %>
+</td>

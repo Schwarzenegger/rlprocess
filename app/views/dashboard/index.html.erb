@@ -2,75 +2,65 @@
 
 <div class="wrapper wrapper-content">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-12">
       <div class="ibox">
-        <div class="ibox-content">
-          <h3><%= t('views.dashboard.todo')%></h3>
-
-          <ul class="sortable-list connectList agile-list ui-sortable" id="todo">
-            <% @todo.each do |activity| %>
-              <li class="<%= activity_element_color(activity) %> ui-sortable-handle" id="activity-<%= activity.id%>">
-                <dd><%= fa_icon("tasks") %> <%= activity.name%></dd>
-                <dd><%= fa_icon("building") %> <%= activity.nickname%></dd>
-
-                <div class="agile-detail">
-                  <% if current_user.admin? %>
-                    <a href="#" class="float-right"><%= activity.user.name%></a>
-                  <% end %>
-                  <%= fa_icon("clock-o") %> <%= l activity.deadline%>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+        <div class="ibox-title">
+          <h5><%= t('views.dashboard.activity_list')%></h5>
+          <div class="ibox-tools">
+            <a href="" class="btn btn-primary btn-xs"><%= t('views.dashboard.add_new_activity')%></a>
+          </div>
         </div>
+        <div class="ibox-content">
+
+          <div class="m-b-lg">
+
+            <div class="row">
+              <div class="col-lg-10">
+                <input type="text" class="form-control" placeholder="<%= t('views.dashboard.search_by_name')%>">
+              </div>
+               <div class="col-lg-2">
+                <button class="btn btn-white" type="button"><%= t('views.dashboard.search')%></button>
+              </div>
+
+            </div>
+
+            <div class="m-t-md">
+
+              <div class="float-right">
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-comments"></i> </button>
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-user"></i> </button>
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-list"></i> </button>
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-pencil"></i> </button>
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-print"></i> </button>
+                <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-cogs"></i> </button>
+              </div>
+
+              <strong><%= t('views.dashboard.number_of_activities', number: @activities.count)%></strong>
+
+            </div>
+
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover issue-tracker">
+              <tbody>
+
+              <% @activities.each do |activity| %>
+                <tr id="activity-<%= activity.id %>" >
+                 <%= render partial: 'activities/activity_row', locals: { activity: activity } %>
+                </tr>
+
+              <% end %>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="col-lg-4">
-      <div class="ibox">
-        <div class="ibox-content">
-          <h3><%= t('views.dashboard.doing')%></h3>
-          <ul class="sortable-list connectList agile-list ui-sortable" id="inprogress">
-            <% @doing.each do |activity| %>
-              <li class="<%= activity_element_color(activity) %> ui-sortable-handle" id="activity-<%= activity.id%>">
-                <dd><%= fa_icon("tasks") %> <%= activity.name%></dd>
-                <dd><%= fa_icon("building") %> <%= activity.nickname%></dd>
-
-                <div class="agile-detail">
-                  <% if current_user.admin? %>
-                    <a href="#" class="float-right"><%= activity.user.name%></a>
-                  <% end %>
-                  <%= fa_icon("clock-o") %> <%= l activity.deadline%>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="ibox">
-        <div class="ibox-content">
-          <h3><%= t('views.dashboard.done')%></h3>
-          <ul class="sortable-list connectList agile-list ui-sortable" id="completed">
-            <% @done.each do |activity| %>
-              <li class="<%= activity_element_color(activity) %> ui-sortable-handle" id="activity-<%= activity.id%>">
-                <dd><%= fa_icon("tasks") %> <%= activity.name%></dd>
-                <dd><%= fa_icon("building") %> <%= activity.nickname%></dd>
-
-                <div class="agile-detail">
-                  <% if current_user.admin? %>
-                    <a href="#" class="float-right"><%= activity.user.name%></a>
-                  <% end %>
-                  <%= fa_icon("clock-o") %> <%= l activity.deadline%>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+
 
 <%= render partial: 'layouts/simple_modal', locals: { modal_id: "activity", modal_title: t('activerecord.models.activity') } %>

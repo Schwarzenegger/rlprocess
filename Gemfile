@@ -35,6 +35,8 @@ gem 'sidekiq-scheduler'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'stateful_enum'
+gem 'lol_dba'
+gem 'immigrant'
 
 group :development, :test do
   gem 'pry-rails'

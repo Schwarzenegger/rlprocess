@@ -24,8 +24,10 @@ pt-BR:
               required: "Atividade não pode ficar em branco"
             user:
               required: "Usuário não pode ficar em branco"
-        master_activity:
+        client:
           delete: "Não foi possivel deletar Cliente"
+        master_activity:
+          delete: "Não foi possivel deletar Atividade"
     attributes:
       client_user_activity:
         master_activity: "Atividade"

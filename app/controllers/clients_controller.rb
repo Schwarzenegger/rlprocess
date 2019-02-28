@@ -51,10 +51,11 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    if @resource.destroy
+    begin
+      @resource.destroy
       flash[:alert] = t('flash.actions.destroy.notice', resource_name: t('activerecord.models.client'))
       redirect_to clients_path
-    else
+    rescue
       flash[:alert] = t('activerecord.errors.models.client.delete')
       redirect_to clients_path
     end

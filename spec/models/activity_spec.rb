@@ -34,6 +34,42 @@ RSpec.describe Activity, type: :model do
                                    doing: 2,
                                     done: 3,
                                 archived: 4) }
+
+    describe "Enum States" do
+      it "should start a activity" do
+        activity = FactoryBot.build(:activity)
+        expect(activity.status).to eq "todo"
+        expect(activity.when_moved_to_progress).to eq nil
+        expect(activity.when_moved_to_done).to eq nil
+        activity.start
+        expect(activity.status).to eq "doing"
+        expect(activity.when_moved_to_progress).not_to eq nil
+        expect(activity.when_moved_to_done).to eq nil
+      end
+
+      it "should finish a activity" do
+        activity = FactoryBot.build(:activity, status: "doing", when_moved_to_progress: DateTime.now)
+        expect(activity.status).to eq "doing"
+        expect(activity.when_moved_to_progress).not_to eq nil
+        expect(activity.when_moved_to_done).to eq nil
+        activity.finish
+        expect(activity.status).to eq "done"
+        expect(activity.when_moved_to_progress).not_to eq nil
+        expect(activity.when_moved_to_done).not_to eq nil
+      end
+
+      it "should restart a activity" do
+        activity = FactoryBot.build(:activity, status: "done",
+          when_moved_to_progress: DateTime.now, when_moved_to_done: DateTime.now)
+        expect(activity.status).to eq "done"
+        expect(activity.when_moved_to_progress).not_to eq nil
+        expect(activity.when_moved_to_done).not_to eq nil
+        activity.restart
+        expect(activity.status).to eq "todo"
+        expect(activity.when_moved_to_progress).to eq nil
+        expect(activity.when_moved_to_done).to eq nil
+      end
+    end
   end
 
 
@@ -48,6 +84,39 @@ RSpec.describe Activity, type: :model do
         activity = FactoryBot.build(:activity, deadline: Date.today + 1)
         expect(activity.is_past_deadlines?).to eq false
       end
+    end
+
+    describe "is_close_to_deadline?" do
+      it "should return true if activity is close deadline" do
+        activity = FactoryBot.build(:activity, deadline: Date.today + 2)
+        expect(activity.is_close_to_deadline?).to eq true
+      end
+
+      it "should return false if activity is close deadline" do
+        activity = FactoryBot.build(:activity, deadline: Date.today + 3)
+        expect(activity.is_close_to_deadline?).to eq false
+      end
+
+    end
+
+    describe "has_done_all_checklists?" do
+      it "should return true if has no checklist" do
+        activity = FactoryBot.build(:activity)
+        expect(activity.has_done_all_checklists?).to eq true
+      end
+
+      it "should return false if has checklist and they are not done" do
+        activity = FactoryBot.create(:activity)
+        FactoryBot.create(:activity_check_list, activity: activity, done: false)
+        expect(activity.has_done_all_checklists?).to eq false
+      end
+
+      it "should return true if has checklist and they are done" do
+        activity = FactoryBot.create(:activity)
+        FactoryBot.create(:activity_check_list, activity: activity, done: true)
+        expect(activity.has_done_all_checklists?).to eq true
+      end
+
     end
 
     describe "set_identifier" do

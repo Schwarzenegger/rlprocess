@@ -64,7 +64,7 @@ class Activity < ApplicationRecord
   end
 
   def is_close_to_deadline?
-    if Date.today > self.deadline - 2
+    if Date.today > self.deadline - 3
       return true
     else
       return false

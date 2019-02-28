@@ -9,6 +9,7 @@ DashboardController.prototype.index = function() {
 };
 
 function startActivity(){
+  $('.start-activity').off('click')
   $('.start-activity').on('click', function(event) {
     var target = $(event.target);
     $(target).attr("disabled", "disabled");
@@ -26,6 +27,7 @@ function startActivity(){
 }
 
 function restartActivity(){
+  $('.restart-activity').off('click')
   $('.restart-activity').on('click', function(event) {
     var target = $(event.target);
     $(target).attr("disabled", "disabled");
@@ -43,6 +45,7 @@ function restartActivity(){
 }
 
 function finishActivity(){
+  $('.finish-activity').off('click')
   $('.finish-activity').on('click', function(event) {
     var target = $(event.target);
     $(target).attr("disabled", "disabled");

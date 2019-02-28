@@ -2,7 +2,7 @@ class Activity < ApplicationRecord
   belongs_to :client
   belongs_to :user
   belongs_to :master_activity
-  has_many :activiy_check_lists
+  has_many :activity_check_lists
 
   validates :identifier, presence: true, uniqueness: true
 
@@ -29,7 +29,7 @@ class Activity < ApplicationRecord
         self.when_moved_to_progress = nil
         self.when_moved_to_done = nil
 
-        self.activiy_check_lists.each do |check|
+        self.activity_check_lists.each do |check|
           check.done = false
           check.save
         end
@@ -72,8 +72,8 @@ class Activity < ApplicationRecord
   end
 
   def has_done_all_checklists?
-    unless self.activiy_check_lists.empty?
-      return self.activiy_check_lists.pluck(:done).all?
+    unless self.activity_check_lists.empty?
+      return self.activity_check_lists.pluck(:done).all?
     else
       return true
     end

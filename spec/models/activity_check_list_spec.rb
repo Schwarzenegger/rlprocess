@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ActiviyCheckList, type: :model do
+RSpec.describe ActivityCheckList, type: :model do
   it "should have a factory" do
-    expect(FactoryBot.build(:activiy_check_list)).to be_valid
+    expect(FactoryBot.build(:activity_check_list)).to be_valid
   end
 
   context "Should Respond" do

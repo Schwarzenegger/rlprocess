@@ -28,6 +28,11 @@ class Activity < ApplicationRecord
       before do
         self.when_moved_to_progress = nil
         self.when_moved_to_done = nil
+
+        self.activiy_check_lists.each do |check|
+          check.done = false
+          check.save
+        end
       end
 
       transition [:doing, :done, :archived] => :todo
@@ -63,6 +68,14 @@ class Activity < ApplicationRecord
       return true
     else
       return false
+    end
+  end
+
+  def has_done_all_checklists?
+    unless self.activiy_check_lists.empty?
+      return self.activiy_check_lists.pluck(:done).all?
+    else
+      return true
     end
   end
 

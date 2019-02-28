@@ -3,3 +3,9 @@ startActivity();
 restartActivity();
 finishActivity();
 showActivityInformation();
+
+<% if @resource.todo? %>
+  toastr.success("<%= t('views.dashboard.restarted_success') %>")
+<% else %>
+  toastr.error("<%= t('views.dashboard.generic_status_error') %>")
+<% end %>

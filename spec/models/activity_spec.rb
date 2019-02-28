@@ -38,6 +38,18 @@ RSpec.describe Activity, type: :model do
 
 
   context "Instance Methods" do
+    describe "is_past_deadlines?" do
+      it "should return true if activity is past deadline" do
+        activity = FactoryBot.build(:activity, deadline: Date.today - 1)
+        expect(activity.is_past_deadlines?).to eq true
+      end
+
+      it "should return false if activity is not past deadline" do
+        activity = FactoryBot.build(:activity, deadline: Date.today + 1)
+        expect(activity.is_past_deadlines?).to eq false
+      end
+    end
+
     describe "set_identifier" do
       it "Should set right identifier when called" do
         client = create(:client)

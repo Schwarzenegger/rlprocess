@@ -24,6 +24,11 @@ pt-BR:
       late_activity: "Atividade atrasada em %{days}"
       days_to_be_late: "%{days} para atividade atrasar"
       deadline_today: "Hoje data limite"
+      checkbox_pendencies: "Essa atividade não pode ser finalizada, tarefas dela não estão completas"
+      finished_success: "Atividade Finalizada com sucesso"
+      generic_status_error: "Aconteceu erro ao tentar mudar de fase, tente novamente"
+      restarted_success: "Atividade reiniciada com sucesso"
+      started_sucess: "Atividade Iniciada com sucesso"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

@@ -38,7 +38,9 @@ class ActivitiesController < ApplicationController
   end
 
   def finish_activity
-    @resource.finish
+    if @resource.has_done_all_checklists?
+      @resource.finish
+    end
   end
 
   def restart_activity

@@ -1,13 +1,5 @@
 <td>
-  <span class="label label-primary">
-    <% if activity.todo? %>
-    <%= t('views.dashboard.todo')%>
-  <% elsif activity.doing? %>
-    <%= t('views.dashboard.doing')%>
-  <% elsif activity.done? %>
-    <%= t('views.dashboard.done')%>
-  <% end %>
-  </span>
+  <%= activity_status_label(activity)%>
 </td>
 <td class="issue-info">
   <a id="activity-details-<%= activity.id %>" class="activity-details">

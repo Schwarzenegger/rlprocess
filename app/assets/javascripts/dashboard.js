@@ -10,12 +10,16 @@ DashboardController.prototype.index = function() {
 
 function startActivity(){
   $('.start-activity').on('click', function(event) {
+    var target = $(event.target);
+    $(target).attr("disabled", "disabled");
+
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
       url: "/activities/" + activityId + "/start_activity",
       dataType: 'script',
       success: function() {
+        $(target).removeAttr('disabled');
       }
     });
   });
@@ -23,12 +27,16 @@ function startActivity(){
 
 function restartActivity(){
   $('.restart-activity').on('click', function(event) {
+    var target = $(event.target);
+    $(target).attr("disabled", "disabled");
+
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
       url: "/activities/" + activityId + "/restart_activity",
       dataType: 'script',
       success: function() {
+        $(target).removeAttr('disabled');
       }
     });
   });
@@ -36,12 +44,16 @@ function restartActivity(){
 
 function finishActivity(){
   $('.finish-activity').on('click', function(event) {
+    var target = $(event.target);
+    $(target).attr("disabled", "disabled");
+
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
       url: "/activities/" + activityId + "/finish_activity",
       dataType: 'script',
       success: function() {
+        $(target).removeAttr('disabled');
       }
     });
   });

@@ -84,7 +84,7 @@
           <% @resource.activiy_check_lists.each do |acl| %>
           <div class="form-group">
              <div class="i-checks custom-text-color">
-              <%= check_box_tag "acl-#{acl.id}", "yes", acl.done, class: "activity-checkbox" %>
+              <%= check_box_tag "acl-#{acl.id}", "yes", acl.done, class: "activity-checkbox", disabled: !@resource.doing? %>
               <%= acl.name %>
              </div>
            </div>

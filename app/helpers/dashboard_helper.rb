@@ -1,16 +1,28 @@
 module DashboardHelper
-  def activity_element_color(activity)
-    if activity.is_past_deadlines?
-      return "danger-element"
-    elsif activity.is_close_to_deadline?
-      return "warning-element"
+  def activity_status_label(activity)
+    label_class = ""
+
+    if activity.done?
+      label_class = "label-success"
     else
-      return "info-element"
+      if activity.is_past_deadlines?
+        label_class = "label-danger"
+      elsif activity.is_close_to_deadline?
+        label_class = "label-warning"
+      else
+        label_class = "label-primary"
+      end
     end
+
+    content_tag(:span, class: "label #{label_class}") do
+      t("views.dashboard.#{activity.status}")
+    end
+
+
   end
 
   def how_close_to_deadline(activity)
-    days = (Date.today - activity.deadline)
+    days = (Date.today - activity.deadline).to_i
     if days > 0
       return I18n.t("views.dashboard.late_activity", days: days)
     elsif days == 0

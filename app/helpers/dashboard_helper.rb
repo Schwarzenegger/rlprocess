@@ -24,6 +24,10 @@ module DashboardHelper
   end
 
   def how_close_to_deadline(activity)
+    if activity.done?
+      return I18n.t("views.dashboard.done_activity", date: I18n.l(activity.when_moved_to_done))
+    end
+
     days = (Date.today - activity.deadline).to_i
     if days > 0
       return I18n.t("views.dashboard.late_activity", days: days)

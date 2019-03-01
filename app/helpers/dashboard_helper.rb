@@ -30,7 +30,7 @@ module DashboardHelper
     elsif days == 0
       return I18n.t("views.dashboard.deadline_today")
     else
-      return I18n.t("views.dashboard.days_to_be_late", days: days)
+      return I18n.t("views.dashboard.days_to_be_late", days: -days)
     end
   end
 end

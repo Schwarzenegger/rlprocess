@@ -1,5 +1,10 @@
 pt-BR:
   views:
+    pagination:
+      first: "Primeira"
+      next: "Próxima"
+      last: "Última"
+      previous: "Anterior"
     general:
       sign_out: "Sair"
       table_empty: "Sem dados para exibir"

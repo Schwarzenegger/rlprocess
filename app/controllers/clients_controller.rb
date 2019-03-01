@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
 
   def index
     @q = Client.search(params[:q])
+    @q.sorts = 'social_name asc' if @q.sorts.empty?
     @resources = @q.result.page(params[:page])
   end
 

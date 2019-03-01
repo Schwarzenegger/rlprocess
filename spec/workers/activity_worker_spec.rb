@@ -5,6 +5,17 @@ RSpec.describe ActivityWorker do
      expect { ActivityWorker.perform_async() }.to change(ActivityWorker.jobs, :size).by(1)
   end
 
+  it "Should create a right deadline for a invalid day on february" do
+    user = create(:user, :admin)
+    client = create(:client)
+    master_activity = create(:master_activity, frequency: "montly", deadline_day: 31)
+    cua_1 = create(:client_user_activity, client: client, user: user, master_activity: master_activity)
+    allow(Date).to receive(:today) { Date.new(2019,2,1) }
+    ActivityWorker.new.perform()
+    expect(Activity.count).to eq 1
+    expect(Activity.first.deadline).to eq Date.new(2019,2,28)
+  end
+
   it "should create the right activities for the right month passing ids" do
     user_1 = create(:user, :admin)
     user_2 = create(:user, :employee)
@@ -33,7 +44,6 @@ RSpec.describe ActivityWorker do
     allow(Date).to receive(:today) { Date.new(2019,1,1) }
     ActivityWorker.new.perform([cua_6.id])
     expect(Activity.count).to eq 1
-
   end
 
   it "should create the right activities for that month running with all" do

@@ -6,7 +6,31 @@ DashboardController.prototype.index = function() {
   startActivity();
   restartActivity();
   finishActivity();
+  goBackAMonth();
+  fowardAMonth();
 };
+
+function goBackAMonth(){
+  $('.back-month').on('click', function(event) {
+    var target = $(event.target);
+    $(target).attr("disabled", "disabled");
+
+    monthValue = parseInt($('#dashboard_month').val()) - 1
+
+    window.location = '/dashboard?month=' + monthValue
+  });
+}
+
+function fowardAMonth(){
+  $('.foward-month').on('click', function(event) {
+    var target = $(event.target);
+    $(target).attr("disabled", "disabled");
+
+    monthValue = parseInt($('#dashboard_month').val()) + 1
+
+    window.location = '/dashboard?month=' + monthValue
+  });
+}
 
 function startActivity(){
   $('.start-activity').off('click')

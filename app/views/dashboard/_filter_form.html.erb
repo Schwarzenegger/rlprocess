@@ -1,0 +1,24 @@
+<%= search_form_for @q, url: dashboard_path do |f| %>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= f.search_field :master_activity_name_cont, class: "form-control", placeholder: t('views.dashboard.search_by_name') %>
+    </div>
+
+    <div class="col-lg-4">
+      <%= f.search_field :client_nickname_or_client_social_name_cont, class: "form-control", placeholder: t('views.dashboard.search_by_name_client') %>
+    </div>
+
+    <div class="col-lg-4">
+      <%= f.search_field :user_name_cont, class: "form-control", placeholder: t('views.dashboard.search_by_name_user') %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2">
+      <%= f.submit class: "btn btn-white" %>
+    </div>
+  </div>
+
+<% end %>

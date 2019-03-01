@@ -10,6 +10,7 @@ class MasterActivitiesController < ApplicationController
 
   def index
     @q = MasterActivity.search(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
     @resources = @q.result.page(params[:page])
   end
 

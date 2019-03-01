@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @q = User.search(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
     @resources = @q.result.page(params[:page])
   end
 

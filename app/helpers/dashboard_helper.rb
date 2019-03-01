@@ -17,8 +17,10 @@ module DashboardHelper
     content_tag(:span, class: "label #{label_class}") do
       t("views.dashboard.#{activity.status}")
     end
+  end
 
-
+  def month_name(value = Date.today.month)
+    return I18n.t('date.month_names')[value  - 1]
   end
 
   def how_close_to_deadline(activity)

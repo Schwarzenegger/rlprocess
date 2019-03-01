@@ -8,6 +8,7 @@ class ActivityProfilesController < ApplicationController
 
   def index
     @q = ActivityProfile.search(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
     @resources = @q.result.page(params[:page])
   end
 

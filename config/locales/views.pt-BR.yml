@@ -17,6 +17,8 @@ pt-BR:
       add_new_activity: "Adicionar Atividade"
       search: "Buscar"
       search_by_name: "Buscar atividade por nome ..."
+      search_by_name_client: "Buscar por nome do cliente ..."
+      search_by_name_user: "Buscar por nome do usuário ..."
       number_of_activities: "%{number} Atividades"
       start: "Iniciar"
       finish: "Finalizar"

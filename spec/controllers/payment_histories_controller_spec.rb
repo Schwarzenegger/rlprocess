@@ -16,9 +16,10 @@ RSpec.describe PaymentHistoriesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root path if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :new }.to raise_error(CanCan::AccessDenied)
+        get :new
+        expect(response).to redirect_to(root_path)
       end
 
       it "assigns @resource" do
@@ -37,9 +38,10 @@ RSpec.describe PaymentHistoriesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root path if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :edit, params: { id: payment_history.id } }.to raise_error(CanCan::AccessDenied)
+        get :edit, params: { id: payment_history.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "assigns @resource" do
@@ -58,10 +60,10 @@ RSpec.describe PaymentHistoriesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root path if user has no permission" do
         sign_in_mock_user(employee_user)
         b_payment_history = build(:payment_history)
-        expect { post :create, params: { payment_history: b_payment_history.attributes } }.to raise_error(CanCan::AccessDenied)
+        post :create, params: { payment_history: b_payment_history.attributes }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -86,9 +88,9 @@ RSpec.describe PaymentHistoriesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root path if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { put :update, params: {id: payment_history.id, payment_history: { value: "123" } } }.to raise_error(CanCan::AccessDenied)
+        put :update, params: {id: payment_history.id, payment_history: { value: "123" } }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -115,9 +117,10 @@ RSpec.describe PaymentHistoriesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root path if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { delete :destroy, params: { id: payment_history.id } }.to raise_error(CanCan::AccessDenied)
+        delete :destroy, params: { id: payment_history.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "Should delete actrivity" do

@@ -1,4 +1,7 @@
 pt-BR:
+  unauthorized:
+    manage:
+      all: "Sem autorização para %{action} %{subject}."
   recaptcha:
     errors:
       verification_failed: 'Recaptcha falhou'

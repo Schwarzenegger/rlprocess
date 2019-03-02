@@ -14,9 +14,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if have no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :index }.to raise_error(CanCan::AccessDenied)
+        get :index
+        expect(response).to redirect_to(root_path)
       end
 
       it "should render the index template" do
@@ -36,9 +37,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if have no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :new }.to raise_error(CanCan::AccessDenied)
+        get :new
+        expect(response).to redirect_to(root_path)
       end
 
       it "assigns @resource" do
@@ -57,9 +59,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if have no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :edit, params: { id: client.id } }.to raise_error(CanCan::AccessDenied)
+        get :edit, params: { id: client.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "assigns @resource" do
@@ -78,10 +81,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
         b_client = build(:client)
-        expect { post :create, params: { client: b_client.attributes } }.to raise_error(CanCan::AccessDenied)
+        post :create, params: { client: b_client.attributes }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -105,9 +108,9 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { put :update, params: {id: client.id, client: { social_name: "Name Test" } } }.to raise_error(CanCan::AccessDenied)
+        put :update, params: { id: client.id, client: { social_name: "Name Test" } }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -133,9 +136,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { delete :destroy, params: { id: client.id } }.to raise_error(CanCan::AccessDenied)
+        delete :destroy, params: { id: client.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "Should delete actrivity" do
@@ -157,9 +161,10 @@ RSpec.describe ClientsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirec to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :show, params: { id: client.id } }.to raise_error(CanCan::AccessDenied)
+        get :show, params: { id: client.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "assigns @resource" do

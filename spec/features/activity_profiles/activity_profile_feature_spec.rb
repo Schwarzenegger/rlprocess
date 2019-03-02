@@ -28,7 +28,8 @@ describe "Activity Profile Feature specs", type: :feature do
     it "Employee Should NOT be able to visit page" do
       login_as(employee_user, :scope => :user)
 
-      expect{visit '/activity_profiles'}.to raise_error(CanCan::AccessDenied)
+      visit '/activity_profiles'
+      expect(page.current_path).to eq root_path
     end
 
     it "Try to see the page without being logged in" do

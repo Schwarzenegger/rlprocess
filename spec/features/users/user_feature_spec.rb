@@ -18,13 +18,15 @@ describe "User Feature Spec", type: :feature do
     it "Manager Should NOT be able to visit page" do
       login_as(manager_user, :scope => :user)
 
-      expect{visit '/users'}.to raise_error(CanCan::AccessDenied)
+      visit '/users'
+      expect(page.current_path).to eq root_path
     end
 
     it "Employee Should NOT be able to visit page" do
       login_as(employee_user, :scope => :user)
 
-      expect{visit '/users'}.to raise_error(CanCan::AccessDenied)
+      visit '/users'
+      expect(page.current_path).to eq root_path
     end
 
     it "Try to see the page without being logged in" do

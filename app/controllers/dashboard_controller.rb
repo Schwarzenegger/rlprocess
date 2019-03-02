@@ -19,7 +19,7 @@ class DashboardController < ApplicationController
     if current_user.admin?
       @q = Activity.unarchived.includes(:master_activity, :client, :user).ransack(params[:q])
     else
-      @q = Activity.unarchived.includes(:master_activity, :client).where(user_id: current_user).ransack(params[:q])
+      @q = Activity.unarchived.includes(:master_activity, :client, :user).where(user_id: current_user).ransack(params[:q])
     end
 
     @q.sorts = ['status asc', 'deadline asc'] if @q.sorts.empty?

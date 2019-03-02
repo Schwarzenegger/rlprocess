@@ -28,7 +28,8 @@ describe "Master Activity Feature Spec", type: :feature do
     it "Employee Should NOT be able to visit page" do
       login_as(employee_user, :scope => :user)
 
-      expect{visit '/master_activities'}.to raise_error(CanCan::AccessDenied)
+      visit '/master_activities'
+      expect(page.current_path).to eq root_path
     end
 
     it "Try to see the page without being logged in" do

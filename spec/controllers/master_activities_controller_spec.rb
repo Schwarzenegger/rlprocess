@@ -14,9 +14,10 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :index }.to raise_error(CanCan::AccessDenied)
+        get :index
+        expect(response).to redirect_to(root_path)
       end
 
       it "should render the index template" do
@@ -36,9 +37,10 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :new }.to raise_error(CanCan::AccessDenied)
+        get :new
+        expect(response).to redirect_to(root_path)
       end
 
       it "should raise ActionController::UnknownFormat for html" do
@@ -64,9 +66,10 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { get :edit, params: { id: master_activity.id } }.to raise_error(CanCan::AccessDenied)
+        get :edit, params: { id: master_activity.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "should raise ActionController::UnknownFormat for html" do
@@ -91,10 +94,10 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
         b_activity = build(:master_activity)
-        expect { post :create, params: { master_activity: b_activity.attributes } }.to raise_error(CanCan::AccessDenied)
+        post :create, params: { master_activity: b_activity.attributes }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -119,9 +122,9 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { put :update, params: {id: master_activity.id, master_activity: { name: "Name Test" } } }.to raise_error(CanCan::AccessDenied)
+        put :update, params: {id: master_activity.id, master_activity: { name: "Name Test" } }
         expect(assigns(:resource)).to eq(nil)
       end
 
@@ -148,9 +151,10 @@ RSpec.describe MasterActivitiesController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it "should raise cancan error if user has no permission" do
+      it "should redirect to root if user has no permission" do
         sign_in_mock_user(employee_user)
-        expect { delete :destroy, params: { id: master_activity.id } }.to raise_error(CanCan::AccessDenied)
+        delete :destroy, params: { id: master_activity.id }
+        expect(response).to redirect_to(root_path)
       end
 
       it "Should delete actrivity" do

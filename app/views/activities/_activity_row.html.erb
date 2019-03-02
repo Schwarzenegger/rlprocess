@@ -1,14 +1,13 @@
 <td>
   <%= activity_status_label(activity)%>
 </td>
-<td class="issue-info">
-  <a id="activity-details-<%= activity.id %>" class="activity-details">
+<td id="activity-details-<%= activity.id %>" class="activity-details">
+  <span>
     <%= activity.name %>
-  </a>
-
-  <small>
-    <%= activity.nickname %>
-  </small>
+  </span>
+</td>
+<td>
+  <%= activity.nickname %>
 </td>
 <td>
   <%= activity.user.name %>
@@ -28,4 +27,16 @@
   <% else activity.done? %>
     <button class="btn btn-white btn-xs restart-activity" id="restart-activity-<%= activity.id %>"><%= t('views.dashboard.start_over')%></button>
   <% end %>
+
+  <% if current_user.admin? %>
+    <%= link_to archive_activity_path(activity),
+      class: "btn btn-xs btn-white btn-bitbucket tool-tip archive-activity" ,
+      id: "master-activity-delete-#{activity.id}", title: t('actions.destroy'),
+      data: { confirm:  t('confirm_exclude', model: t('activerecord.models.activity').downcase) },
+      remote: true, method: :put do %>
+      <%= fa(:trash) %>
+   <% end  %>
+
+  <% end  %>
+
 </td>

@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   resources :activities, only: [:update, :show] do
     member do
-      put :start_activity
-      put :finish_activity
-      put :restart_activity
+      put :start
+      put :finish
+      put :restart
+      put :archive
     end
     collection do
       put :mark_option

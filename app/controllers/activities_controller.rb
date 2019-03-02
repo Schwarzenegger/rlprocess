@@ -1,8 +1,8 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_activity, only: [:update, :show, :start_activity,
-                :finish_activity, :restart_activity]
+  before_action :set_activity, only: [:update, :show, :start,
+                :finish, :restart, :archive]
 
   respond_to :js
 
@@ -33,18 +33,22 @@ class ActivitiesController < ApplicationController
     acl.save
   end
 
-  def start_activity
+  def start
     @resource.start
   end
 
-  def finish_activity
+  def finish
     if @resource.has_done_all_checklists?
       @resource.finish
     end
   end
 
-  def restart_activity
+  def restart
     @resource.restart
+  end
+
+  def archive
+    @resource.archive
   end
 
   private

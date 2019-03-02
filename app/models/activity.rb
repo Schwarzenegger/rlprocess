@@ -9,6 +9,8 @@ class Activity < ApplicationRecord
   delegate :name, to: :master_activity
   delegate :nickname, to: :client
 
+  scope :unarchived, -> { where(status: [1, 2, 3]) }
+
   enum status: {
         todo: 1,
        doing: 2,
@@ -50,7 +52,7 @@ class Activity < ApplicationRecord
     end
 
     event :archive do
-      transition [:todo, :doing, :done] => :done
+      transition [:todo, :doing, :done] => :archived
     end
 
   end

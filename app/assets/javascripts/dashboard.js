@@ -41,7 +41,7 @@ function startActivity(){
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
-      url: "/activities/" + activityId + "/start_activity",
+      url: "/activities/" + activityId + "/start",
       dataType: 'script',
       success: function() {
         $(target).removeAttr('disabled');
@@ -59,7 +59,7 @@ function restartActivity(){
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
-      url: "/activities/" + activityId + "/restart_activity",
+      url: "/activities/" + activityId + "/restart",
       dataType: 'script',
       success: function() {
         $(target).removeAttr('disabled');
@@ -77,7 +77,7 @@ function finishActivity(){
     var activityId = $(this).attr("id").split('-')[2]
     $.ajax({
       type: "PUT",
-      url: "/activities/" + activityId + "/finish_activity",
+      url: "/activities/" + activityId + "/finish",
       dataType: 'script',
       success: function() {
         $(target).removeAttr('disabled');

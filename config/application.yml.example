@@ -1,2 +1,5 @@
 s3_access_key: ""
 s3_secret_access_key: ""
+s3_bucket: "rlgestao"
+s3_region: "sa-east-1"
+host: "0.0.0.0:3000"

@@ -5,15 +5,18 @@ class DashboardController < ApplicationController
 
     params[:q] ||= {}
 
-    if params[:month].present?
-      date_from_month = Date.new(Date.today.year, params[:month].to_i, 1)
+    if params[:month].present? && params[:year]
+      @month_value = params[:month].to_i
+      @year_value = params[:year].to_i
+      date_from_month = Date.new(@year_value, @month_value, 1)
       params[:q][:deadline_lteq] = date_from_month.end_of_month
       params[:q][:deadline_gteq] = date_from_month
-      @month_value = params[:month].to_i
     else
-      params[:q][:deadline_lteq] = Date.today.end_of_month
-      params[:q][:deadline_gteq] = Date.today.beginning_of_month
-      @month_value = Date.today.month
+      today = Date.today
+      params[:q][:deadline_lteq] = today.end_of_month
+      params[:q][:deadline_gteq] = today.beginning_of_month
+      @month_value = today.month
+      @year_value = today.year
     end
 
     if current_user.admin?

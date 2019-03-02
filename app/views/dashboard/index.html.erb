@@ -20,7 +20,8 @@
               <div class="float-right">
                 <button type="button" class="btn btn-sm btn-white back-month"> <i class="fa fa-arrow-left"></i> </button>
                   <%= hidden_field(:dashboard, :month, value: @month_value)  %>
-                  <%= month_name(@month_value) %>
+                  <%= hidden_field(:dashboard, :year, value: @year_value)  %>
+                  <%= month_year_name(@month_value, @year_value) %>
                 <button type="button" class="btn btn-sm btn-white foward-month"> <i class="fa fa-arrow-right"></i> </button>
               </div>
 

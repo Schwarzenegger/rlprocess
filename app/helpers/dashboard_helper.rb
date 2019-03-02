@@ -19,8 +19,8 @@ module DashboardHelper
     end
   end
 
-  def month_name(value = Date.today.month)
-    return I18n.t('date.month_names')[value  - 1]
+  def month_year_name(month, year)
+    return "#{I18n.t('date.month_names')[month  - 1]}/#{year}"
   end
 
   def how_close_to_deadline(activity)

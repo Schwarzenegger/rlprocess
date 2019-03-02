@@ -30,7 +30,7 @@ pt-BR:
       start: "Iniciar"
       finish: "Finalizar"
       start_over: "Reiniciar"
-      late_activity: "Atividade atrasada em %{days}"
+      late_activity: "Atividade atrasada em %{days} dias"
       days_to_be_late: "%{days} dias para atividade atrasar"
       deadline_today: "Hoje data limite"
       checkbox_pendencies: "Essa atividade não pode ser finalizada, tarefas dela não estão completas"

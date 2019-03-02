@@ -16,8 +16,14 @@ function goBackAMonth(){
     $(target).attr("disabled", "disabled");
 
     monthValue = parseInt($('#dashboard_month').val()) - 1
+    if(monthValue == 0){
+      monthValue = 12
+      yearValue = parseInt($('#dashboard_year').val()) - 1
+    }else{
+      yearValue = parseInt($('#dashboard_year').val())
+    }
 
-    window.location = '/dashboard?month=' + monthValue
+    window.location = '/dashboard?month=' + monthValue + "&year=" + yearValue
   });
 }
 
@@ -27,8 +33,14 @@ function fowardAMonth(){
     $(target).attr("disabled", "disabled");
 
     monthValue = parseInt($('#dashboard_month').val()) + 1
+    if(monthValue == 13){
+      monthValue = 1
+      yearValue = parseInt($('#dashboard_year').val()) + 1
+    }else{
+      yearValue = parseInt($('#dashboard_year').val())
+    }
 
-    window.location = '/dashboard?month=' + monthValue
+    window.location = '/dashboard?month=' + monthValue + "&year=" + yearValue
   });
 }
 

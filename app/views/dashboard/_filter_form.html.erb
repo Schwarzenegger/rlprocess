@@ -1,7 +1,7 @@
 <%= search_form_for @q, url: dashboard_path do |f| %>
-
   <div class="row">
     <div class="col-lg-4">
+      <%=hidden_field_tag :month, @month_value%>
       <%= f.search_field :master_activity_name_cont, class: "form-control", placeholder: t('views.dashboard.search_by_name') %>
     </div>
 
@@ -15,10 +15,14 @@
 
   </div>
 
+  <div class="hr-line-dashed"></div>
+
   <div class="row">
-    <div class="col-lg-2">
-      <%= f.submit class: "btn btn-white" %>
+    <div class="col-sm-4 ">
+      <%= link_to t("views.dashboard.clear"), dashboard_path(month: @month_value), class: "btn btn-white" %>
+      <%= f.submit class: "btn btn-primary" %>
     </div>
+
   </div>
 
 <% end %>

@@ -14,6 +14,7 @@
 
           <div class="m-b-lg">
 
+            <%= render "filter_form"%>
             <div class="m-t-md">
 
               <div class="float-right">
@@ -24,9 +25,7 @@
               </div>
 
               <strong><%= t('views.dashboard.number_of_activities', number: @activities.count)%></strong>
-
             </div>
-
           </div>
 
           <div class="table-responsive">

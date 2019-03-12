@@ -7,6 +7,7 @@ class Activity < ApplicationRecord
   validates :identifier, presence: true, uniqueness: true
 
   delegate :name, to: :master_activity
+  delegate :competence, to: :master_activity
   delegate :nickname, to: :client
 
   scope :unarchived, -> { where(status: [1, 2, 3]) }

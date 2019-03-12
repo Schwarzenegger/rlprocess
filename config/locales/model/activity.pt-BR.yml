@@ -23,5 +23,6 @@ pt-BR:
         deadline: "Deadline"
         when_moved_to_progress: "Data de Inicio"
         when_moved_to_done: "Finalizada"
+        competence: "Competência"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

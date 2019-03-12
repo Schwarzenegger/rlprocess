@@ -23,6 +23,17 @@ module DashboardHelper
     return "#{I18n.t('date.month_names')[month  - 1]}/#{year}"
   end
 
+  def set_competence(activity)
+    if activity.competence == "competence_month"
+      return "#{activity.deadline.month - 1}/#{activity.deadline.year}"
+    elsif activity.competence == "next_month"
+      return "#{activity.deadline.month}/#{activity.deadline.year}"
+    else
+      return ""
+    end
+
+  end
+
   def how_close_to_deadline(activity)
     if activity.done?
       return I18n.t("views.dashboard.done_activity", date: I18n.l(activity.when_moved_to_done))

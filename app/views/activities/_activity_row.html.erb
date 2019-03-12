@@ -16,7 +16,7 @@
   <%= ldate activity.deadline %>
 </td>
 <td>
-  <%= translate_enum('master_activity', 'competence', activity.competence) %>
+  <%= set_competence activity %>
 </td>
 <td>
   <%= how_close_to_deadline(activity) %>

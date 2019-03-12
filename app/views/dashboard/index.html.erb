@@ -31,8 +31,19 @@
 
           <div class="table-responsive">
             <table class="table table-hover issue-tracker">
-              <tbody>
+              <thead>
+                <tr>
+                  <th data-sort-ignore="true" data-toggle="true"><%= sort_link @q, :status%></th>
+                  <th data-sort-ignore="true"><%= sort_link @q, :master_activity_name %></th>
+                  <th data-sort-ignore="true"><%= sort_link @q, :master_activity_nickname %></th>
+                  <th data-sort-ignore="true"><%= sort_link @q, :user_name %></th>
+                  <th data-sort-ignore="true"><%= sort_link @q, :deadline %></th>
+                  <th data-sort-ignore="true"><%= sort_link @q, :master_activity_competence %></th>
+                  <th data-sort-ignore="true"><%= t('views.dashboard.how_many_days')%></th>
 
+                </tr>
+              </thead>
+              <tbody>
               <% @activities.each do |activity| %>
                 <tr id="activity-<%= activity.id %>" >
                  <%= render partial: 'activities/activity_row', locals: { activity: activity } %>

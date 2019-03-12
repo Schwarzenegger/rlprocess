@@ -16,7 +16,7 @@ pt-BR:
     dashboard:
       clear: "Limpar filtros"
       dashboard: Dashboard
-      todo: "TODO"
+      todo: "Em Aberto"
       doing: "Em andamento"
       done: "Finalizado"
       done_activity: "Atividade Finalizada em %{date}"
@@ -29,7 +29,7 @@ pt-BR:
       number_of_activities: "%{number} Atividades"
       start: "Iniciar"
       finish: "Finalizar"
-      start_over: "Reiniciar"
+      start_over: "Retificar"
       late_activity: "Atividade atrasada em %{days} dias"
       days_to_be_late: "%{days} dias para atividade atrasar"
       deadline_today: "Hoje data limite"
@@ -38,6 +38,7 @@ pt-BR:
       generic_status_error: "Aconteceu erro ao tentar mudar de fase, tente novamente"
       restarted_success: "Atividade reiniciada com sucesso"
       started_sucess: "Atividade Iniciada com sucesso"
+      how_many_days: "Dias para atrasar"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

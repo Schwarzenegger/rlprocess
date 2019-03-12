@@ -82,6 +82,8 @@ class MasterActivitiesController < ApplicationController
       :deadline_day,
       :has_checkbox,
       :checkbox_options,
+      :competence,
+      :start_date,
       deadline_month: [],
       master_checklist_options_attributes: [:id, :name, :_destroy]
       )

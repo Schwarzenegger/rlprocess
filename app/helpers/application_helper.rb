@@ -23,6 +23,8 @@ module ApplicationHelper
   end
 
   def translate_enum(klass, attribute, value)
-    I18n.t("enums.#{klass}.#{attribute}.#{value}")
+    unless value.blank?
+      I18n.t("enums.#{klass}.#{attribute}.#{value}")
+    end
   end
 end

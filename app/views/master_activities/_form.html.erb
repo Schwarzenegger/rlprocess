@@ -16,18 +16,27 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-4">
+      <%= f.input :start_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+    </div>
+
+    <div class="col-xs-4">
       <%= f.input :category,
         input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-4">
       <%= f.input :frequency,
         input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
     </div>
   </div>
 
   <div class="row">
+   <div class="col-xs-4 competence-col">
+      <%= f.input :competence,
+        input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
+    </div>
+
     <div class="col-xs-4 deadline-date-col">
       <%= f.input :deadline_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
     </div>

@@ -10,6 +10,9 @@ pt-BR:
         quarterly: "Trimestral"
         annual: "Anual"
         single_time: "Única"
+      competence:
+        competence_month: "Mês da Competencia"
+        next_month: "Mês Seguinte"
   activerecord:
     models:
       master_activity: "Atividades"
@@ -29,5 +32,7 @@ pt-BR:
         checkbox_options: "Opções checklist"
         activity_profiles: "Perfis"
         deadline_date: "Data Fim"
+        competence: "Competência"
+        start_date: "Data de Inicio"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

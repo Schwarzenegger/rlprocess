@@ -11,21 +11,25 @@ function setupFrequencyFields(){
       $('.deadline-date-col').hide();
       $('.deadline-month-col').hide();
       $('.deadline-day-col').hide();
+      $('.competence-col').hide();
 
       $('#master_activity_deadline_date').val('');
       $('#master_activity_deadline_month').val('')
       $('#master_activity_deadline_month option:selected').removeAttr('selected');
       $('#master_activity_deadline_month').trigger('chosen:updated')
       $('#master_activity_deadline_day').val('');
+      $('#master_activity_competence').val('');
 
       break;
     case 'montly':
       $('.deadline-date-col').hide();
       $('.deadline-month-col').hide();
       $('.deadline-day-col').show();
+      $('.competence-col').show();
 
       break;
     case 'quarterly':
+      $('.competence-col').hide();
       $('.deadline-date-col').hide();
       $('.deadline-month-col').show();
       $('.deadline-day-col').show();
@@ -35,6 +39,7 @@ function setupFrequencyFields(){
 
       break;
     case 'annual':
+      $('.competence-col').hide();
       $('.deadline-date-col').hide();
       $('.deadline-month-col').show();
       $('.deadline-day-col').show();
@@ -44,6 +49,7 @@ function setupFrequencyFields(){
       $('#master_activity_deadline_month').trigger('chosen:updated')
       break;
     case 'single_time':
+      $('.competence-col').hide();
       $('.deadline-date-col').show();
       $('.deadline-month-col').hide();
       $('.deadline-day-col').hide();
@@ -54,6 +60,7 @@ function setupFrequencyFields(){
 
 function onFrequenceChange(){
   $('#master_activity_frequency').on('change', function() {
+    $('#master_activity_competence').val('');
     $('#master_activity_deadline_day').val('');
     $('#master_activity_deadline_date').val('');
     $('#master_activity_deadline_month').val('')

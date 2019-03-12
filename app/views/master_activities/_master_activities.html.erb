@@ -9,6 +9,8 @@
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_date")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_month")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.deadline_day")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.start_date")%></th>
+        <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.competence")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.created_at")%></th>
         <th data-sort-ignore="true" data-breakpoints="all" data-hide="all"><%=t("activerecord.attributes.master_activity.updated_at")%></th>
       </tr>
@@ -41,6 +43,12 @@
           </td>
           <td>
             <%= master_activity.deadline_day %>
+          </td>
+          <td>
+            <%= ldate master_activity.start_date, :default %>
+          </td>
+          <td>
+            <%= translate_enum('master_activity', 'competence', master_activity.competence) %>
           </td>
           <td>
             <%= ldate master_activity.created_at, :default %>

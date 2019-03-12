@@ -14,6 +14,10 @@ class MasterActivity < ApplicationRecord
                      annual: 3,
                single_time: 4 }
 
+  enum competence: { competence_month: 1,
+                    next_month: 2
+  }
+
   validates :name, presence: true
   validates :category, presence: true
   validates :frequency, presence: true

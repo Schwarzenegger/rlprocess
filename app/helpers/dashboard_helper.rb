@@ -25,9 +25,9 @@ module DashboardHelper
 
   def set_competence(activity)
     if activity.competence == "competence_month"
-      return "#{activity.deadline.month - 1}/#{activity.deadline.year}"
-    elsif activity.competence == "next_month"
       return "#{activity.deadline.month}/#{activity.deadline.year}"
+    elsif activity.competence == "next_month"
+      return "#{activity.deadline.month - 1}/#{activity.deadline.year}"
     else
       return ""
     end

@@ -32,7 +32,7 @@ pt-BR:
         checkbox_options: "Opções checklist"
         activity_profiles: "Perfis"
         deadline_date: "Data Fim"
-        competence: "Competência"
+        competence: "Vencimento"
         start_date: "Data de Inicio"
         created_at: "Cadastrado em"
         updated_at: "Atualizado em"

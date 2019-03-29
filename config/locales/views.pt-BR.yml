@@ -39,6 +39,7 @@ pt-BR:
       restarted_success: "Atividade reiniciada com sucesso"
       started_sucess: "Atividade Iniciada com sucesso"
       how_many_days: "Dias para atrasar"
+      competence: "Competência"
     users:
       plural: "Usuários"
       new: "Cadastrar novo usuário"

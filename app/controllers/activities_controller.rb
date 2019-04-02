@@ -28,7 +28,7 @@ class ActivitiesController < ApplicationController
   end
 
   def mark_option
-    acl = ActiviyCheckList.find(params[:optionId])
+    acl = ActivityCheckList.find(params[:optionId])
     acl.done = params[:checked]
     acl.save
   end

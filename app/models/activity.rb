@@ -94,7 +94,7 @@ class Activity < ApplicationRecord
       when "single_time"
         frequency = "S"
       end
-      self.identifier = "C#{self.client_id}-MA#{self.master_activity_id}/#{frequency}/#{Date.today.month}/#{Date.today.year}"
+      self.identifier = "C#{self.client_id}-MA#{self.master_activity_id}/#{frequency}/#{5}/#{Date.today.year}"
     else
       return false
     end

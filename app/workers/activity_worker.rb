@@ -10,8 +10,8 @@ class ActivityWorker
 
     cuas.each do |cua|
       activity = Activity.new(client: cua.client, user: cua.user, master_activity: cua.master_activity)
-      current_day = Date.new(2019,5,1)
-      current_month = 5
+      current_day = Date.today
+      current_month = Date.today.month
       current_year = current_day.year
       master_activity = cua.master_activity
       begin

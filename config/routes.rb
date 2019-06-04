@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :activity_profiles
   resources :payment_histories
 
-  resources :activities, only: [:update, :show] do
+  resources :activities, only: [:new, :create, :update, :show] do
     member do
       put :start
       put :finish

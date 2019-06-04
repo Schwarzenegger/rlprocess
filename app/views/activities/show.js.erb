@@ -1,5 +1,5 @@
-$('div#activity-container').html("<%= escape_javascript(render partial: 'activity') %>");
+$('div#activity-information-container').html("<%= escape_javascript(render partial: 'activity') %>");
 $(".modal-title").html("<%=@resource.name%>");
-showModalWindow("activity-modal");
+showModalWindow("activity-information-modal");
 General.enableICheck();
 whenOptionIsChecked();

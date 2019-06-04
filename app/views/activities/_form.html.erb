@@ -1,0 +1,52 @@
+<%
+  form_url = url_for(controller: "activities", action: "create")
+%>
+
+<%= simple_form_for(@resource, url: form_url, authenticity_token: true,
+    method: @resource.new_record? ? "POST" : "PUT", remote: true, wrapper: :vertical_form,
+    html: { class: "form-vertical", role: "form", }) do |f| %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :start_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+    </div>
+
+    <div class="col-xs-4">
+      <%= f.input :category,
+        input_html: { class: "chosen", "data-placeholder"=> t('views.general.select_one') } %>
+    </div>
+
+    <div class="col-xs-4 deadline-date-col">
+      <%= f.input :deadline_date, as: :date_time_picker, input_html: { class: "date-time-picker" } %>
+    </div>
+  </div>
+
+  <%= f.simple_fields_for :activities do |a| %>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= a.association :client, label_method: :nickname %>
+      </div>
+
+      <div class="col-xs-6">
+        <%= a.association :user %>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="master_checklist_options">
+    <%= f.simple_fields_for :master_checklist_options do |mco| %>
+      <%= render 'master_checklist_option_fields', f: mco %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t('views.master_activities.add_checklist_option'),
+          f, :master_checklist_options, class: "btn btn-xs btn-primary pull-right" %>
+    </div>
+  </div>
+
+<% end %>

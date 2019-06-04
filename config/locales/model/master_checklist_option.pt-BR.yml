@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      master_checklist_option: "Opções Checklist"
+    errors:
+      models:
+        master_checklist_option:
+          delete: "Não foi possivel deletar a opção do Checklist"
+    attributes:
+      master_checklist_option:
+        name: "Nome"
+        created_at: "Cadastrado em"
+        updated_at: "Atualizado em"

@@ -7,7 +7,9 @@
         <div class="ibox-title">
           <h5><%= t('views.dashboard.activity_list')%></h5>
           <div class="ibox-tools">
-            <a href="" class="btn btn-primary btn-xs"><%= t('views.dashboard.add_new_activity')%></a>
+            <%= link_to new_activity_path, class: "btn btn-xs btn-primary pull-right open-crud-modal", data: { url: new_activity_path } do %>
+              <%=fa(:plus)%> <%= t("views.master_activities.plural") %>
+            <% end %>
           </div>
         </div>
         <div class="ibox-content">
@@ -62,4 +64,5 @@
 </div>
 
 
-<%= render partial: 'layouts/simple_modal', locals: { modal_id: "activity", modal_title: t('activerecord.models.activity') } %>
+<%= render partial: 'layouts/simple_modal', locals: { modal_id: "activity-information", modal_title: t('activerecord.models.activity') } %>
+<%= render partial: 'layouts/crud_modal', locals: { modal_id: "activity", modal_title: t('actions.add_one', model: t('activerecord.models.master_activity').downcase) } %>

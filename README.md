@@ -108,8 +108,14 @@ Run yarn
 yarn install
 ```
 
+install foreman
+
+```
+gem install foreman
+```
+
 and finally run the project with
 
 ```
-rails s
+foreman start -f Procfile.dev
 ```

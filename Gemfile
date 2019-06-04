@@ -55,7 +55,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem "selenium-webdriver"
-  gem "chromedriver-helper"
+  gem 'webdrivers', '~> 4.0'
   gem 'shoulda-matchers', '4.0.0.rc.1'
   gem 'shoulda-callback-matchers'
   gem 'simplecov', require: false

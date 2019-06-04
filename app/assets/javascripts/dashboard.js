@@ -8,6 +8,7 @@ DashboardController.prototype.index = function() {
   finishActivity();
   goBackAMonth();
   fowardAMonth();
+  General.enableCrudModal();
 };
 
 function goBackAMonth(){
@@ -100,9 +101,7 @@ function finishActivity(){
 
 function showActivityInformation(){
   $('.activity-details').on('click', function(event) {
-
       var activityId = $(this).attr("id").split('-')[2]
-
       $.ajax({
         type: "GET",
         url: "/activities/" + activityId,

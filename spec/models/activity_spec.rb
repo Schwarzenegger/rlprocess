@@ -28,6 +28,16 @@ RSpec.describe Activity, type: :model do
     it { should have_many(:activity_check_lists) }
   end
 
+  context "Validations" do
+    it { should validate_uniqueness_of(:identifier) }
+  end
+
+  context "Callbacks" do
+    describe "#generate_access_token" do
+      it { should callback(:set_identifier).before(:validation) }
+    end
+  end
+
   context "Enums" do
     it { should define_enum_for(:status).with_values(
                                     todo: 1,
@@ -144,10 +154,8 @@ RSpec.describe Activity, type: :model do
 
         activity.master_activity = master_activity_4
         activity.set_identifier
-        expect(activity.identifier).to eq "C#{client.id}-MA#{master_activity_4.id}/S/#{Date.today.month}/#{Date.today.year}"
-
+        expect(activity.identifier).to_not eq nil
       end
     end
   end
-
 end

@@ -12,6 +12,11 @@ pt-BR:
     errors:
       models:
         activity:
+          attributes:
+            user:
+              required: "Usuário não pode ficar em branco"
+            client:
+              required: "Cliente não pode ficar em branco"
           delete: "Não foi possivel deletar Atividade"
     attributes:
       activity:

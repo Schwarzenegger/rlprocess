@@ -4,11 +4,13 @@ class Activity < ApplicationRecord
   belongs_to :master_activity
   has_many :activity_check_lists
 
-  validates :identifier, presence: true, uniqueness: true
+  validates :identifier, uniqueness: true, presence: true
 
   delegate :name, to: :master_activity
   delegate :competence, to: :master_activity
   delegate :nickname, to: :client
+
+  before_validation :set_identifier, on: :create
 
   scope :unarchived, -> { where(status: [1, 2, 3]) }
 
@@ -92,7 +94,7 @@ class Activity < ApplicationRecord
       when "annual"
         frequency = "A"
       when "single_time"
-        frequency = "S"
+        frequency = "S#{Time.now.to_i}"
       end
       self.identifier = "C#{self.client_id}-MA#{self.master_activity_id}/#{frequency}/#{Date.today.month}/#{Date.today.year}"
     else

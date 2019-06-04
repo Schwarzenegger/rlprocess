@@ -6,6 +6,25 @@ class ActivitiesController < ApplicationController
 
   respond_to :js
 
+  def new
+    @resource = MasterActivity.new
+    @resource.activities.build
+    respond_with(@resource)
+  end
+
+  def create
+    @resource = MasterActivity.new(master_activity_params)
+    @resource.frequency = 4
+    @resource.activities.first.deadline = @resource.deadline_date
+    @resource_valid = @resource.save
+    @location = dashboard_path
+
+    if @resource_valid
+      flash[:notice] = t('flash.actions.create.notice', resource_name: t('activerecord.models.activity'))
+    end
+    respond_with(@resource)
+  end
+
   def update
     case params[:destination]
     when 'todo'
@@ -52,6 +71,21 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+  def master_activity_params
+    params.require(:master_activity).permit(
+      :name,
+      :category,
+      :deadline_date,
+      :has_checkbox,
+      :checkbox_options,
+      :competence,
+      :start_date,
+      deadline_month: [],
+      master_checklist_options_attributes: [:id, :name, :_destroy],
+      activities_attributes: [:id, :client_id, :user_id]
+      )
+  end
 
   def set_activity
     @resource = Activity.find(params[:id])

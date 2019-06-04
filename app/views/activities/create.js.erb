@@ -1,0 +1,6 @@
+<% if @resource_valid %>
+  window.location = "<%=@location%>";
+<% else %>
+  $('div#activity-form-container').html("<%= escape_javascript(render partial: 'form') %>");
+  setupMasterActivityForm();
+<% end %>
